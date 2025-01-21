@@ -1,40 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';  // Importa Axios
 
-function Productos() {
-  const [productos, setProductos] = useState([]);  // Estado para almacenar los productos
-  const [error, setError] = useState(null);  // Estado para manejar errores
+const ProductosList = () => {
+  // Estado para almacenar los productos
+  const [productos, setProductos] = useState([]);
 
-  // Usamos useEffect para hacer la solicitud cuando el componente se monte
+  // Usamos useEffect para hacer el fetch cuando el componente se monta
   useEffect(() => {
-    // Realizamos la solicitud GET usando Axios
-    axios.get('http://localhost:8080/product')  // URL de tu backend
-      .then(response => {
-        setProductos(response.data);  // Guardamos los productos en el estado
-      })
-      .catch(error => {
-        setError(error.message);  // Si hay error, lo almacenamos en el estado
-        console.error('Error al obtener productos:', error);
-      });
-  }, []);  // El array vacío asegura que solo se haga la solicitud una vez al montar el componente
+    fetch('http://localhost:8080/product')  // Asegúrate de que la URL sea correcta
+      .then(response => response.json())   // Convertir la respuesta a JSON
+      .then(data => setProductos(data))     // Guardamos los productos en el estado
+      .catch(error => console.error('Error:', error)); // Manejo de errores
+  }, []);  // El array vacío asegura que solo se ejecute una vez cuando se monta el componente
 
   return (
     <div>
-      <h2>Productos</h2>
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}  {/* Mostrar mensaje de error si hay */}
+      <h1>Lista de productos</h1>
       <ul>
-        {productos.length > 0 ? (
-          productos.map(producto => (
-            <li key={producto.id}>
-              {producto.nombre} - ${producto.precio}
-            </li>
-          ))
-        ) : (
-          <p>No hay productos disponibles</p>  {/* Mensaje si no hay productos */}
-        )}
+        {/* Mapeamos los productos y los mostramos en la lista */}
+        {productos.map((producto) => (
+          <li key={producto.id}>
+            {producto.nombre} - ${producto.precio}
+          </li>
+        ))}
       </ul>
     </div>
   );
-}
+};
 
-export default Productos;
+export default ProductosList;
