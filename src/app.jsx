@@ -4,10 +4,13 @@ import ProductosList from './components/products';
 
 
 function App() {
-  return <Button variant="contained">Hello, MUI!</Button>;
-  <div className="App">
-      <ProductosList />  {/* Usa el componente aquí */}
+  return (
+    <div className="App">
+      <Button variant="contained">Hello, MUI!</Button>;
+  
+      <ProductosList />  {}
     </div>
+    )
 }
 
 export default App;
