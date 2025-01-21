@@ -15,3 +15,5 @@ fetch(backendUrl)
   .catch(error => {
     console.error('Error:', error);  // Manejar errores
   });
+
+  //prueba
