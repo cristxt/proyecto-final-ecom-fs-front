@@ -1,11 +1,11 @@
 import './App.css'
-import CreateProduct from './components/CreateProducts/CreateProducts'
+import CreateProduct from './components/CreateProduct/CreateProduct'
 
 function App() {
 
   return (
     <>
-     <CreateProduct /> 
+     <CreateProduct />
     </>
   )
 }
