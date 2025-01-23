@@ -1,17 +1,13 @@
-import React from 'react';
-import Button from '@mui/material/Button';
-import ProductosList from './components/products';
-
+import './App.css'
+import CreateProduct from './components/CreateProducts/CreateProducts'
 
 function App() {
+
   return (
-    <div className="App">
-      <Button variant="contained">Hello, MUI!</Button>;
-  
-      <ProductosList />  {}
-    </div>
-    )
+    <>
+     <CreateProduct /> 
+    </>
+  )
 }
 
-export default App;
-
+export default App
