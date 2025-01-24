@@ -1,13 +1,15 @@
 .create-container {
     background-color: #D9D9D9;
-    
+
     height: fit-content;
     width: 100%;
 
-    border: 1px solid #000;
+    border: 1px solid #588A5C;
     border-radius: 5px;
 
     padding: 1em 1em 0.5em 5em;
+
+    display: flex;
     flex-direction: row;
 }
 
@@ -17,12 +19,18 @@
 
     padding: 15px;
     margin: 10px;
-    
+
+    border: 1px solid #000;
     border-radius: 5px;
+
     text-align: center;
-    
+
     display: inline-block;
     width: auto;
+}
+
+.input-container {
+    border: none;
 }
 
 .button-container {
