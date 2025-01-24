@@ -1,12 +1,10 @@
 import './App.css'
-import CreateProduct from './components/CreateProducts/CreateProducts'
-
+import ProductsListView from './components/pages/productlist/ProductListView'
 function App() {
 
   return (
     <div>
-     <CreateProduct /> 
-     <ProductosList /> 
+     <ProductsListView /> 
     </div>
   )
 }
