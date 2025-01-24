@@ -1,5 +1,5 @@
 import './App.css'
-import CreateProduct from './components/CreateProduct/CreateProduct'
+import { CreateProduct } from './components/molecules/CreateProduct/CreateProduct'
 
 function App() {
 
