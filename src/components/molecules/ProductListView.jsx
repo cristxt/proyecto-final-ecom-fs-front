@@ -1,4 +1,3 @@
-// ProductListView.jsx
 import React, { useEffect, useState } from "react";
 
 const ProductListView = () => {
@@ -8,7 +7,7 @@ const ProductListView = () => {
         fetch('http://localhost:8080/product') 
             .then(response => response.json())
             .then(data => {
-                console.log("Productos obtenidos:", data);  // Verifica que los productos estén llegando
+                console.log("Productos obtenidos:", data);  
                 setProductos(data);
             })
             .catch(error => console.error('Error:', error));

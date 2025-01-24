@@ -9,7 +9,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 5173, // Configura el puerto 5173
-    strictPort: true, // Fuerza el uso del puerto 5173 y no cambia automáticamente
+    port: 5173, 
+    strictPort: true, 
   },
 });
