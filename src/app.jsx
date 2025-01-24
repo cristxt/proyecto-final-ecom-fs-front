@@ -4,9 +4,10 @@ import CreateProduct from './components/CreateProducts/CreateProducts'
 function App() {
 
   return (
-    <>
+    <div>
      <CreateProduct /> 
-    </>
+     <ProductosList /> 
+    </div>
   )
 }
 
