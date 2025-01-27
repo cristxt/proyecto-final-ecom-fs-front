@@ -1,0 +1,42 @@
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/violet.css";
+
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+	.checkbox-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+.CheckboxRoot {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid #110A33;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CheckboxIndicator {
+    color: #110A33;
+}
+
+
+.Label {
+	color: white;
+	padding-left: 15px;
+	font-size: 15px;
+	line-height: 1;
+}
+}
+
+
+
+
