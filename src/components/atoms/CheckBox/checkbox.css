@@ -1,7 +1,6 @@
 @import "@radix-ui/colors/black-alpha.css";
 @import "@radix-ui/colors/violet.css";
 
-/* reset */
 
 .checkbox-group {
     display: flex;
@@ -13,9 +12,6 @@
 		align-items: center;
 		gap: 0.5rem;
 	}
-}
-
-
 
 .CheckboxRoot {
     width: 20px;
@@ -39,3 +35,8 @@
 	font-size: 15px;
 	line-height: 1;
 }
+}
+
+
+
+

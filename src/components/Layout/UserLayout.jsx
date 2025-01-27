@@ -9,9 +9,19 @@ const UserLayout = () => {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
     const [rangoPrecio, setRangoPrecio] = useState("");
 
+    const resetFilters = () => {
+        setCategoriaSeleccionada("");
+        setRangoPrecio("");
+    };
+
     return (
         <div className="user-layout">
-            <div className="checkbox-container">
+            <div className="filters-container">
+                <div className="filters-header">
+                    <h2>Filtros</h2>
+                    <button onClick={resetFilters}>Deshacer</button>
+                </div>
+
                 <Checkbox
                     title="Categoría"
                     options={categorias}
@@ -19,6 +29,7 @@ const UserLayout = () => {
                     onChange={setCategoriaSeleccionada}
                     name="categoria"
                 />
+
                 <Checkbox
                     title="Precio"
                     options={precios}
