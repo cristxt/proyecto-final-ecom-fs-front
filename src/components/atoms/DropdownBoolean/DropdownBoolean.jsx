@@ -6,7 +6,6 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-  DropdownBoolean,
 } from "@/components/ui/dropdown-menu"
 
 const booleanOptions = [

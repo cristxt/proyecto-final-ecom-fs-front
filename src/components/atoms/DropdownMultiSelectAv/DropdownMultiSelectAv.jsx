@@ -9,12 +9,11 @@ import {
 import { FaChevronDown } from "react-icons/fa"  
 
 const defaultOptions = [
-  { value: "interior", label: "Interior" },
-  { value: "exterior", label: "Exterior" },
-  { value: "pet", label: "Petfriendly" },
+  { value: "true", label: "True" },
+  { value: "false", label: "False" },
 ]
 
-export function DropdownMultiSelect({ options = defaultOptions, defaultValue }) {
+export function DropdownMultiSelectAv({ options = defaultOptions, defaultValue }) {
   const [selectedValue, setSelectedValue] = React.useState(defaultValue || options[0]?.value || "")
 
   const selectedLabel = options.find((option) => option.value === selectedValue)?.label || "Select an option"
