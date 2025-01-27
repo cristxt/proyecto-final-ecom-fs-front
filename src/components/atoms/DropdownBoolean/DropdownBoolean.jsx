@@ -1,73 +1,47 @@
-import React, { useState, useRef, useEffect } from "react"
-import { ChevronDown } from "lucide-react"
+import React from "react"
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
-export const DropdownBoolean = () => {
-  const [isEnabled, setIsEnabled] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef(null)
+const booleanOptions = [
+  { value: true, label: "True" },
+  { value: false, label: "False" },
+]
 
-  const toggleDropdown = () => setIsOpen(!isOpen)
+export function DropdownBoolean({ defaultValue = true, onChange }) {
+  const [selectedValue, setSelectedValue] = React.useState(defaultValue)
 
-  const selectOption = (value) => {
-    setIsEnabled(value)
-    setIsOpen(false)
+  const handleValueChange = (value) => {
+    const boolValue = value === "true"
+    setSelectedValue(boolValue)
+    if (onChange) {
+      onChange(boolValue)
+    }
   }
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false)
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
-
   return (
-    <div className="relative inline-block text-left" ref={dropdownRef}>
-      <div>
-        <button
-          type="button"
-          className="inline-flex justify-between items-center w-40 rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-          id="options-menu"
-          aria-haspopup="true"
-          aria-expanded="true"
-          onClick={toggleDropdown}
-        >
-          <span>{isEnabled ? "True" : "False"}</span>
-          <ChevronDown className="h-5 w-5 ml-2" aria-hidden="true" />
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className="absolute left-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100">
-          <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-            <a href="#"
-              className={`${
-                isEnabled ? "bg-indigo-100 text-indigo-900" : "text-gray-700"
-              } block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-150 ease-in-out`}
-              role="menuitem"
-              onClick={(e) => {
-                e.preventDefault()
-                selectOption(true)}}>
-              True
-            </a>
-            <a href="#"
-              className={`${
-                !isEnabled ? "bg-indigo-100 text-indigo-900" : "text-gray-700"
-              } block px-4 py-2 text-sm hover:bg-gray-100 transition-colors duration-150 ease-in-out`}
-              role="menuitem"
-              onClick={(e) => {
-                e.preventDefault()
-                selectOption(false)}}>
-              False
-            </a>
-          </div>
-        </div>
-      )}
+    <div>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild className='param-container'>
+          <Button variant="outline" className="w-[200px] justify-between">
+            {selectedValue ? "True" : "False"}
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuRadioGroup value={selectedValue.toString()} onValueChange={handleValueChange}>
+            {booleanOptions.map((option) => (
+              <DropdownMenuRadioItem key={option.value.toString()} value={option.value.toString()} className='param-container'>
+                {option.label}
+              </DropdownMenuRadioItem>
+            ))}
+          </DropdownMenuRadioGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   )
 }

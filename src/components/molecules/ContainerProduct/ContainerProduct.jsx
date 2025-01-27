@@ -1,19 +1,18 @@
 import './ContainerProduct.css'
+import { Button } from "@/components/ui/button"
 
-function ContainerProduct() {
+export function ContainerProduct() {
   return (
     <section className='product-container'>
-      <div><p>id</p></div>
-      <div><image></image></div>
-      <div><p>Name</p></div>
-      <div><p>Description</p></div>
-      <div><p>Category</p></div>
-      <div><p>Price</p></div>
-      <div><p>Available</p></div>
-      <div><Button className='edit button-container' variant="outline"><img></img></Button></div>
-      <div><Button className='delete button-container' variant="outline"><img></img></Button></div>
+      <div className='param-container'><p>id</p></div>
+      <div className='param-container'><image></image></div>
+      <div className='param-container'><p>Name</p></div>
+      <div className='param-container'><p>Description</p></div>
+      <div className='param-container'><p>Category</p></div>
+      <div className='param-container'><p>Price</p></div>
+      <div className='param-container'><p>Available</p></div>
+      <Button className='edit button-container' variant="outline"><img></img></Button>
+      <Button className='delete button-container' variant="outline"><img></img></Button>
     </section>
   );
 }
-
-export default ContainerProduct;
