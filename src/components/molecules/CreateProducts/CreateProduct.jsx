@@ -1,6 +1,8 @@
+import { DropdownBoolean } from '../../atoms/DropdownBoolean/DropdownBoolean';
+import { DropdownMultiSelect } from '../../atoms/DropdownMultiSelect/DropdownMultiSelect';
 import './CreateProduct.css'
 import { Input } from '@/components/ui/input';
-import { DropdownBoolean } from '../../atoms/DropdownBoolean/DropdownBoolean';
+import { Button } from "@/components/ui/button"
 
 export function CreateProduct() {
   return (
