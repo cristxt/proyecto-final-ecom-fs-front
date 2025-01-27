@@ -1,13 +1,24 @@
 import './App.css'
+import React from "react";
 import { CreateProduct } from './components/molecules/CreateProduct/CreateProduct'
-import { ContainerProduct } from './components/molecules/ContainerProduct/ContainerProduct'
+// import { ContainerProduct } from './components/molecules/ContainerProduct/ContainerProduct'
 
 function App() {
+  // const [products, setProducts] = useState([]);
+
+  // const getAllProductsFromService = async () => {
+  //   const response = await getAllProducts();
+  //   setProducts(response)
+  // }
+
+  // useEffect(() => {
+  //   getAllProductsFromService()
+  // }, [])
 
   return (
     <>
      <CreateProduct />
-     <ContainerProduct />
+     {/* <section className=''><ContainerProduct productsArray={products}/></section> */}
     </>
   )
 }

@@ -1,18 +1,26 @@
 import './ContainerProduct.css'
 import { Button } from "@/components/ui/button"
 
-export function ContainerProduct() {
-  return (
-    <section className='product-container'>
-      <div className='param-container'><p>id</p></div>
-      <div className='param-container'><image></image></div>
-      <div className='param-container'><p>Name</p></div>
-      <div className='param-container'><p>Description</p></div>
-      <div className='param-container'><p>Category</p></div>
-      <div className='param-container'><p>Price</p></div>
-      <div className='param-container'><p>Available</p></div>
-      <Button className='edit button-container' variant="outline"><img></img></Button>
-      <Button className='delete button-container' variant="outline"><img></img></Button>
-    </section>
-  );
+export function ContainerProduct({ productsArray }) {
+//   return (
+//     <>
+//       {productsArray.map((product) => {
+//         const { id, image, name, description, category, price, available } = product;
+
+//         return (
+//           <div className='product-container' key={id}>
+//             <div className='param-container'><p>{id}</p></div>
+//             <div className='param-container'><img src={image} alt={name} /></div>
+//             <div className='param-container'><p>{name}</p></div>
+//             <div className='param-container'><p>{description}</p></div>
+//             <div className='param-container'><p>{category}</p></div>
+//             <div className='param-container'><p>{price}</p></div>
+//             <div className='param-container'><p>{available}</p></div>
+//             <Button className='edit button-container' variant="outline"><img /></Button>
+//             <Button className='delete button-container' variant="outline"><img /></Button>
+//           </div>
+//         );
+//       })}
+//     </>
+//   );
 }
