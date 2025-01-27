@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ProductListView from "../pages/productlist/ProductListView";
 import Checkbox from "../atoms/CheckBox/checkbox";
+import Header from "../shared/Header/Header";
 import "../Layout/UserLayout.css";
 
 const UserLayout = () => {
@@ -15,35 +16,38 @@ const UserLayout = () => {
     };
 
     return (
-        <div className="user-layout">
-            <div className="filters-container">
-                <div className="filters-header">
-                    <h2>Filtros</h2>
-                    <button onClick={resetFilters}>Deshacer</button>
+        <>
+            <Header/>
+            <div className="user-layout">
+                <div className="filters-container">
+                    <div className="filters-header">
+                        <h2>Filtros</h2>
+                        <button onClick={resetFilters}>Deshacer</button>
+                    </div>
+
+                    <Checkbox
+                        title="Categoría"
+                        options={categorias}
+                        selectedValue={categoriaSeleccionada}
+                        onChange={setCategoriaSeleccionada}
+                        name="categoria"
+                    />
+
+                    <Checkbox
+                        title="Precio"
+                        options={precios}
+                        selectedValue={rangoPrecio}
+                        onChange={setRangoPrecio}
+                        name="precio"
+                    />
                 </div>
 
-                <Checkbox
-                    title="Categoría"
-                    options={categorias}
-                    selectedValue={categoriaSeleccionada}
-                    onChange={setCategoriaSeleccionada}
-                    name="categoria"
-                />
-
-                <Checkbox
-                    title="Precio"
-                    options={precios}
-                    selectedValue={rangoPrecio}
-                    onChange={setRangoPrecio}
-                    name="precio"
-                />
+                <div className="product-list-container">
+                    <h2>Bienvenido a la tienda de Plantas</h2>
+                    <ProductListView />
+                </div>
             </div>
-
-            <div className="product-list-container">
-                <h2>Bienvenido a la tienda de Plantas</h2>
-                <ProductListView />
-            </div>
-        </div>
+        </>
     );
 };
 
