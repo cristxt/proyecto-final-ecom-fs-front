@@ -24,7 +24,7 @@ const ProductListView = () => {
                             <img src={producto.url_image} alt={producto.name} />
                         </div>
                         <div className="product-info">
-                            <p className="product-title">{producto.name}</p>
+                            <p className="product-name">{producto.name}</p>
                             <p className="product-price">{producto.price} €</p>
                         </div>
                     </div>

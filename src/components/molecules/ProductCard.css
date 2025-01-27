@@ -1,8 +1,7 @@
-/* Estilo general para la tarjeta de productos */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Fondo gris claro para contraste */
+    background-color: #f5f5f5; 
 }
 
 h1 {
@@ -11,25 +10,24 @@ h1 {
     margin-top: 20px;
 }
 
-/* Contenedor principal */
+
 ul {
     list-style: none;
     padding: 0;
     margin: 20px auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
-    gap: 20px; /* Espacio entre tarjetas */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
     max-width: 1200px;
 }
 
-/* Tarjeta de producto */
 li {
-    background-color: #fff; /* Fondo blanco */
+    background-color: #fff; 
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    text-align: left; /* Alineación izquierda */
+    text-align: left;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -38,7 +36,7 @@ li:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagen del producto */
+
 li img {
     max-width: 100%;
     height: auto;
@@ -46,30 +44,30 @@ li img {
     margin-bottom: 10px;
 }
 
-/* Nombre del producto */
+
 li p:first-of-type {
     font-size: 16px;
-    font-weight: normal; /* No negrita */
+    font-weight: normal; 
     color: #333;
     margin-bottom: 5px;
 }
 
-/* Precio del producto */
+
 li p:last-of-type {
     font-size: 14px;
-    font-weight: bold; /* Negrita */
+    font-weight: bold;
     color: #666;
 }
 
-/* Responsividad para pantallas más pequeñas */
+
 @media (max-width: 768px) {
     ul {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablets */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
 @media (max-width: 480px) {
     ul {
-        grid-template-columns: 1fr; /* Una columna en móviles */
+        grid-template-columns: 1fr; 
     }
 }
