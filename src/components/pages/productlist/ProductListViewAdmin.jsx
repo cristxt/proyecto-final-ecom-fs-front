@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./ProductListViewAdmin.css";
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 const ProductListViewAdmin = () => {
     const [productos, setProductos] = useState([]);
 
-    // Fetch de productos al montar el componente
     useEffect(() => {
-        fetch("http://localhost:8080/product") 
+        fetch("http://localhost:8080/product")
             .then((response) => response.json())
             .then((data) => {
-                console.log("Productos obtenidos:", data);  
+                console.log("Productos obtenidos:", data);
                 setProductos(data);
             })
             .catch((error) => console.error("Error:", error));
     }, []);
 
-    // Elimina un producto
     const handleDelete = (id) => {
         fetch(`http://localhost:8080/product/${id}`, {
             method: "DELETE",
@@ -27,58 +26,76 @@ const ProductListViewAdmin = () => {
             .catch((error) => console.error("Error al eliminar el producto:", error));
     };
 
+    const handleUpdate = (id, updatedProduct) => {
+        fetch(`http://localhost:8080/product/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedProduct),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Error al editar el producto");
+                }
+                return response.json();
+            })
+            .then((updatedProduct) => {
+                alert("Producto editado con éxito");
+                setProductos(productos.map((producto) =>
+                    producto.id === id ? updatedProduct : producto
+                ));
+            })
+            .catch((error) =>
+                console.error("Error al editar el producto:", error)
+            );
+    };
+
     return (
         <div className="admin-product-list-container">
-            <h1>Lista de productos</h1>
-            <table className="admin-product-table">
-                <thead>
-                    <tr>
-                        <th>Imagen</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Categoría</th>
-                        <th>Precio</th>
-                        <th>Disponibilidad</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {productos.map((producto) => (
-                        <tr key={producto.id}>
-                            <td>
-                                <img
-                                    className="admin-product-image"
-                                    src={producto.url_image}
-                                    alt={producto.name}
-                                />
-                            </td>
-                            <td>{producto.name}</td>
-                            <td>{producto.description}</td>
-                            <td>{producto.category || "Sin categoría"}</td>
-                            <td>{producto.price} €</td>
-                            <td className={producto.featured ? "availability" : "unavailable"}>
-                                {producto.featured ? "Disponible" : "No disponible"}
-                            </td>
-                            <td>
-                                <div className="admin-buttons">
-                                    <button
-                                        className="edit-button"
-                                        onClick={() => alert(`Editar producto: ${producto.name}`)}
-                                    >
-                                        Editar
-                                    </button>
-                                    <button
-                                        className="delete-button"
-                                        onClick={() => handleDelete(producto.id)}
-                                    >
-                                        Eliminar
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            {/* Lista de productos */}
+            {productos.map((producto) => (
+                <div className="admin-product-item" key={producto.id}>
+                    <div className="admin-product-id">{producto.id}</div>
+
+                    <div className="admin-product-image-container">
+                        <img
+                            className="admin-product-image"
+                            src={producto.url_image}
+                            alt={producto.name}
+                        />
+                    </div>
+                    <div className="admin-product-name">{producto.name}</div>
+                    <div className="admin-product-description">{producto.description}</div>
+                    <div className="admin-product-category">
+                        {producto.category || "Sin categoría"}
+                    </div>
+                    <div className="admin-product-price">{producto.price} €</div>
+                    <div
+                        className={
+                            producto.featured ? "availability" : "unavailable"
+                        }
+                    >
+                        {producto.featured ? "Disponible" : "No disponible"}
+                    </div>
+                    <div className="admin-buttons">
+                        <button
+                            className="edit-button"
+                            onClick={() =>
+                                handleUpdate(producto.id, { ...producto, featured: true })
+                            }
+                        >
+                            <PencilIcon className="h-5 w-5" />
+                        </button>
+                        <button
+                            className="delete-button"
+                            onClick={() => handleDelete(producto.id)}
+                        >
+                            <TrashIcon className="h-5 w-5" />
+                        </button>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 };

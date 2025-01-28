@@ -1,74 +1,115 @@
-.admin-product-list-container {
+.admin-container .admin-product-list-container {
+    padding: 20px !important;
+    margin: 10px !important;
+}
+.admin-container .admin-product-list-container {
     width: 100%;
-    margin: 20px auto;
-    border-collapse: collapse;
+    box-sizing: border-box;
+    margin: 10px;
 }
 
-.admin-product-table {
-    width: 100%;
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-    table-layout: fixed; /* Asegura que las columnas tengan tamaños uniformes */
-}
-
-.admin-product-table th,
-.admin-product-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-    word-wrap: break-word; /* Para textos largos */
-}
-
-.admin-product-table th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-}
-
-.admin-product-image {
-    max-width: 80px;
-    max-height: 80px;
-    object-fit: cover;
-}
-
-.admin-buttons {
+.admin-container .admin-product-list-header {
     display: flex;
-    gap: 10px;
-}
-
-.admin-buttons .edit-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.admin-buttons .edit-button:hover {
-    background-color: #0056b3;
-}
-
-.admin-buttons .delete-button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.admin-buttons .delete-button:hover {
-    background-color: #a71d2a;
-}
-
-.availability {
+    justify-content: space-between;
+    padding: 15px 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
     font-weight: bold;
-    color: green;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
-.unavailable {
-    font-weight: bold;
-    color: red;
+.admin-container .admin-product-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    margin-bottom: 15px;
 }
+
+.admin-container .admin-product-image-container {
+    width: 15%;
+    text-align: center;
+    padding: 10px;
+    margin-right: 10px !important;
+}
+
+.admin-container .admin-product-image {
+    width: 50%;
+    height: auto;
+}
+
+.admin-container .admin-product-id {
+    width: 20%;
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 10px;
+}
+
+.admin-container .admin-product-name {
+    width: 40%;
+    text-align: left;
+    font-size: 0.9rem;
+    padding: 10px !important;
+    margin-right: 10px !important;
+    padding-left: 10px !important;
+}
+
+.admin-container .admin-product-description {
+    width: 20%;
+    text-align: left;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+.admin-container .admin-product-category {
+    width: 15%;
+    text-align: left;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+.admin-container .admin-product-price {
+    width: 10%;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+.admin-container .availability, .admin-container .unavailable {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.admin-container .admin-buttons {
+    width: 20%;
+    text-align: center;
+    padding: 10px;
+    border-color: white;
+}
+
+.admin-container .edit-button  {
+    margin: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+    height: 3rem;
+    width: 3rem;
+
+
+}
+.admin-container .delete-button {
+    margin: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color:white;
+    background-color: red;
+    height: 3rem;
+    width: 3rem;
+}
+
+
