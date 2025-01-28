@@ -7,8 +7,17 @@ const getAllProduct = async () => {
 }
 
 const createProduct = async (newProduct) => {
-    const response = await axios.post(apiProductUrl, newProduct);
-    return response.data;
+    if (!newProduct.name || !newProduct.price) {
+        throw new Error("El nombre y el precio son requeridos");
+    }
+    
+    try {
+        const response = await axios.post(apiProductUrl, newProduct);
+        return response.data;
+    } catch (error) {
+        console.error("Error creating product:", error);
+        throw error; 
+    }
 }
 
 const updateProduct = async (id, product) => {

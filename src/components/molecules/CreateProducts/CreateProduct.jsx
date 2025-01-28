@@ -2,49 +2,44 @@ import React, { useState } from "react";
 import { DropdownBoolean } from "../../atoms/DropDownBoolean/DropdownBoolean";
 import { DropdownMultiSelect } from "../../atoms/DropdownMultiSelect/DropdownMultiSelect";
 import { DropdownMultiSelectAv } from "../../atoms/DropdownMultiSelectAv/DropdownMultiSelectAv";
+import { DropdownMultiSelectImg } from "../../atoms/DropdownMultiSelectImg/DropdownMultiSelectImg";
 import "./CreateProduct.css";
 import { Input } from "@/components/ui/input";
 import { CreateButton } from "../../atoms/Button/CreateButton";
 import { createProduct } from "../../../service/ApiService";
 
 export function CreateProduct() {
-  const [picture, setPicture] = useState(null);
+  const [url_image, setPicture] = useState(null);  // Añadido el estado para picture
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [isAvailable, setIsAvailable] = useState(true); 
-  const [categories, setCategories] = useState([]); 
-  const [availableSizes, setAvailableSizes] = useState([]); 
-
+  const [featured, setIsAvailable] = useState(true); 
+  // const [categories, setCategories] = useState([]); // Comentado para evitar el error por 'category'
   const handleCreateProduct = async () => {
     const newProduct = {
-      picture, 
-      name,
-      description,
-      price: parseFloat(price),
-      isAvailable,
-      categories,
-      availableSizes,
+      url_image, 
+      name, 
+      description, 
+      price: parseFloat(price), 
+      featured, 
     };
-
+  
+    console.log("Datos enviados al backend:", newProduct); 
+  
     try {
       const createdProduct = await createProduct(newProduct);
       alert(`Producto creado con éxito: ${createdProduct.name}`);
       console.log(createdProduct);
     } catch (error) {
-      console.error("Error al crear el producto:", error);
+      console.error("Error al crear el producto:", error.response?.data || error.message);
       alert("No se pudo crear el producto");
     }
   };
 
   return (
     <section className="create-container">
-      <div className="param-container image-container">
-        <Input
-          id="picture"
-          type="file"
-          onChange={(e) => setPicture(e.target.files[0])} 
-        />
+       <div className="dropdown-containerAv">
+        <DropdownMultiSelectImg onChange={(selectedOption) => setPicture(selectedOption.imageUrl)} />
       </div>
       <div className="param-container name-container">
         <Input
@@ -64,9 +59,9 @@ export function CreateProduct() {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <div className="dropdown-container">
+      {/* <div className="dropdown-container">
         <DropdownMultiSelect onChange={setCategories} /> 
-      </div>
+      </div> */}
       <div className="param-container price-container">
         <Input
           className="input-container"
@@ -80,7 +75,7 @@ export function CreateProduct() {
         <DropdownBoolean onChange={setIsAvailable} /> 
       </div>
       <div className="dropdown-containerAv">
-        <DropdownMultiSelectAv onChange={setAvailableSizes} />
+        <DropdownMultiSelectAv onChange={setIsAvailable} />
       </div>
       <div>
         <CreateButton
