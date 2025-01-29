@@ -25,10 +25,11 @@ const updateProduct = async (id, product) => {
     return response.data;
 }
 
-const deleteProduct = async (id, product) => {
-    const response = await axios.delete(`${apiProductUrl}/${id}`, product);
+const deleteProduct = async (id) => {  
+    const response = await axios.delete(`${apiProductUrl}/${id}`);
     return response.data;
-}
+};
+
 
 
 export {

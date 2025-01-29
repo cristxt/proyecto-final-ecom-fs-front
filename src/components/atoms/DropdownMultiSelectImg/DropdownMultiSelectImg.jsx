@@ -10,8 +10,12 @@ import { FaChevronDown } from "react-icons/fa"
 
 const defaultOptions = [
   { value: "image1", label: "Image 1", imageUrl: "/images-database/Platanera_Musa_Dwarf.webp" },
-  { value: "image2", label: "Image 2", imageUrl: "/images-database/Platanera_Musa_Dwarf.webp" },
-  { value: "image3", label: "Image 3", imageUrl: "/images-database/Platanera_Musa_Dwarf.webp" },
+  { value: "image2", label: "Image 2", imageUrl: "/resources/static/images-database/Sansevieria_Moonshine.webp" },
+  { value: "image2", label: "Image 2", imageUrl: "/static/images-database/Sansevieria_Moonshine.webp" },
+  { value: "image2", label: "Image 2", imageUrl: "/Sansevieria_Moonshine.webp" },
+  { value: "image2", label: "Image 2", imageUrl: "Sansevieria_Moonshine.webp" },
+  { value: "image3", label: "Monstera Andansonii", imageUrl: "http://localhost:8080/images-database/Monstera_Andansonii.webp" },
+  { value: "image4", label: "Platanera Musa Dwarf", imageUrl: "http://localhost:8080/images-database/Platanera_Musa_Dwarf.webp" },
 ]
 
 export function DropdownMultiSelectImg({ options = defaultOptions, defaultValue }) {

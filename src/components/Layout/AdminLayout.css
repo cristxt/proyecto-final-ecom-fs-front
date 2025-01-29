@@ -1,4 +1,3 @@
-/* Fondo general blanco */
 .admin-container {
     background-color: white;
     padding-left: 8rem;
@@ -8,18 +7,15 @@
     flex-direction: column;
 }
 
-/* Contenedor de Create Product */
 .create-product-container {
     border-radius: 8px;
 }
 
-/* Contenedor de la lista de productos */
 .product-list-container {
     padding: 20px;
     border-radius: 8px;
 }
 
-/* Estilo del header de la lista de productos */
 .admin-product-list-header {
     background-color: #688A6A;
     color: white;

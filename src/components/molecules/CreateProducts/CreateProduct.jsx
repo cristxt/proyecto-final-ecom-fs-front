@@ -1,6 +1,5 @@
 import React, { useState } from "react"; 
 import { DropdownBoolean } from "../../atoms/DropDownBoolean/DropdownBoolean";
-import { DropdownMultiSelect } from "../../atoms/DropdownMultiSelect/DropdownMultiSelect";
 import { DropdownMultiSelectAv } from "../../atoms/DropdownMultiSelectAv/DropdownMultiSelectAv";
 import { DropdownMultiSelectImg } from "../../atoms/DropdownMultiSelectImg/DropdownMultiSelectImg";
 import "./CreateProduct.css";
@@ -8,13 +7,13 @@ import { Input } from "@/components/ui/input";
 import { CreateButton } from "../../atoms/Button/CreateButton";
 import { createProduct } from "../../../service/ApiService";
 
-export function CreateProduct() {
-  const [url_image, setPicture] = useState(null);  // Añadido el estado para picture
+export function CreateProduct({ onProductCreated }) {
+  const [url_image, setPicture] = useState(null);  
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [featured, setIsAvailable] = useState(true); 
-  // const [categories, setCategories] = useState([]); // Comentado para evitar el error por 'category'
+
   const handleCreateProduct = async () => {
     const newProduct = {
       url_image, 
@@ -29,7 +28,7 @@ export function CreateProduct() {
     try {
       const createdProduct = await createProduct(newProduct);
       alert(`Producto creado con éxito: ${createdProduct.name}`);
-      console.log(createdProduct);
+      onProductCreated(createdProduct); 
     } catch (error) {
       console.error("Error al crear el producto:", error.response?.data || error.message);
       alert("No se pudo crear el producto");
@@ -59,9 +58,6 @@ export function CreateProduct() {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      {/* <div className="dropdown-container">
-        <DropdownMultiSelect onChange={setCategories} /> 
-      </div> */}
       <div className="param-container price-container">
         <Input
           className="input-container"

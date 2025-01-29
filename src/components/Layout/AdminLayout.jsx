@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CreateProduct } from "../molecules/CreateProducts/CreateProduct";
-import ProductListViewAdmin from "../pages/productlist/ProductListViewAdmin"; // Importamos el ProductListViewAdmin
+import ProductListViewAdmin from "../pages/productlist/ProductListViewAdmin"; 
 import "../Layout/AdminLayout.css";
-
-// Importar los iconos
-import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
 
 const AdminLayout = () => {
     const [products, setProducts] = useState([]);
@@ -25,11 +22,39 @@ const AdminLayout = () => {
             .catch((error) => console.error("Error al eliminar el producto:", error));
     };
 
+    const handleUpdate = (id, updatedProduct) => {
+        fetch(`http://localhost:8080/product/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedProduct),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Error al editar el producto");
+                }
+                return response.json();
+            })
+            .then((updatedProduct) => {
+                alert("Producto editado con éxito");
+                setProducts(products.map((product) =>
+                    product.id === id ? updatedProduct : product
+                ));
+            })
+            .catch((error) =>
+                console.error("Error al editar el producto:", error)
+            );
+    };
+
+    const handleCreate = (newProduct) => {
+        setProducts([...products, newProduct]); 
+    };
+
     return (
         <div className="admin-container">
             <h1>Panel de Administración</h1>
             
-            {/* Mostrar CreateProduct dentro de un contenedor */}
             <div className="admin-product-list-header">
                 <div>Id</div>
                 <div>Imagen</div>
@@ -41,17 +66,14 @@ const AdminLayout = () => {
                 <div>Acciones</div>
             </div>
             <div className="create-product-container">
-                <CreateProduct />
+                <CreateProduct onProductCreated={handleCreate} />
             </div>
 
-            {/* Mostrar los encabezados de la lista de productos */}
-
-
-            {/* Mostrar la lista de productos usando ProductListViewAdmin */}
             <div className="admin-product-list-container">
                 <ProductListViewAdmin 
-                    products={products} // Pasamos los productos a ProductListViewAdmin
-                    onDelete={handleDelete} // Pasamos la función para eliminar productos
+                    products={products} 
+                    onDelete={handleDelete} 
+                    onUpdate={handleUpdate} 
                 />
             </div>
         </div>
