@@ -2,8 +2,8 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import AdminLayout from "../components/Layout/AdminLayout.jsx";
 import UserLayout from "../components/Layout/UserLayout.jsx";
+import CheckoutLayout from "../components/Layout/CheckoutLayout/CheckoutLayout.jsx";
 import ProductListView from "../components/pages/productlist/ProductListView.jsx";
-import CheckoutLayout from "../components/Layout/CheckoutLayout/CheckoutLayout.jsx"
 
 export const router = createBrowserRouter([
     {
