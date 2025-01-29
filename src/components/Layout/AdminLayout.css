@@ -1,0 +1,30 @@
+.admin-container {
+    background-color: white;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-product-container {
+    border-radius: 8px;
+}
+
+.product-list-container {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.admin-product-list-header {
+    background-color: #688A6A;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 8px;
+}
+.admin-container .admin-product-list-container {
+    padding: 20px !important;
+    margin: 10px !important;
+}

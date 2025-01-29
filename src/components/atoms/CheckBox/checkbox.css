@@ -16,7 +16,6 @@
 .CheckboxRoot {
     width: 20px;
     height: 20px;
-    background-color: white;
     border: 2px solid #110A33;
     border-radius: 4px;
     display: flex;
@@ -27,7 +26,6 @@
 .CheckboxIndicator {
     color: #110A33;
 }
-
 
 .Label {
 	color: white;
