@@ -29,6 +29,7 @@ export function CreateProduct({ onProductCreated }) {
       const createdProduct = await createProduct(newProduct);
       alert(`Producto creado con éxito: ${createdProduct.name}`);
       onProductCreated(createdProduct); 
+      console.log(createdProduct)
     } catch (error) {
       console.error("Error al crear el producto:", error.response?.data || error.message);
       alert("No se pudo crear el producto");
