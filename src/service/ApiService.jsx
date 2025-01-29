@@ -19,12 +19,18 @@ const updateProduct = async (id, product) => {
 const deleteProduct = async (id, product) => {
     const response = await axios.delete(`${apiProductUrl}/${id}`, product);
     return response.data;
-}
+} 
 
+const apiUserUrl="http://localhost:3000/user"
+const getAllUser = async () => {
+    const response = await axios.get(apiUserUrl);
+    return response.data;
+}
 
 export {
     getAllProduct,
     createProduct,
     updateProduct,
     deleteProduct,
+    getAllUser
 }
