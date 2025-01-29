@@ -91,9 +91,13 @@ const CheckoutLayout = () => {
                             </div>
                         </div>
 
-                        <div className='colunm-quantity'></div>
+                        <div className='colunm-quantity'>
+                          <button onClick={() => updateQuantity(product.id, -1)} className='button-quantity'>-</button>
+                            <span>{product.quantity}</span>
+                          <button onClick={() => updateQuantity(product.id, 1)} className='button-quantity'>+</button>
+                        </div>
 
-                        <div className='colunm-price'></div>
+                        <div className='colunm-price'>{product.price}€</div>
                     </div>
                 ))}
 
