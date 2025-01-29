@@ -5,6 +5,10 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    .admin-container .logo{
+        width: 10%; 
+        height: 10%; 
+    }
 }
 
 .create-product-container {

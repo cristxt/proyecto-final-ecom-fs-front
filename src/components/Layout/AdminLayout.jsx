@@ -53,6 +53,9 @@ const AdminLayout = () => {
 
     return (
         <div className="admin-container">
+            <div className="logo">
+            <img src="/src/assets/logo-ecommerce.png" />
+            </div>
             <h1>Panel de Administración</h1>
             
             <div className="admin-product-list-header">
