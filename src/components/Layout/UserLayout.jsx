@@ -43,7 +43,6 @@ const UserLayout = () => {
                 </div>
 
                 <div className="product-list-container">
-                    <h2>Bienvenido a la tienda de Plantas</h2>
                     <ProductListView />
                 </div>
             </div>

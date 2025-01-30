@@ -16,7 +16,6 @@ const ProductCard = () => {
 
     return (
         <div>
-            <h1>Lista de productos</h1>
             <ul>
                 {productos.map((producto) => (
                     <li key={producto.id}>
