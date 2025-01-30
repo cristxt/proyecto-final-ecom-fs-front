@@ -7,7 +7,7 @@ const Checkbox = ({ title, options, selectedValue, onChange, name }) => {
             {options.map((option, index) => (
                 <div className="checkbox-item" key={index}>
                     <input
-                        type="radio"
+                        type="checkbox"
                         id={`${name}-${index}`}
                         name={name}
                         value={option}
@@ -16,6 +16,7 @@ const Checkbox = ({ title, options, selectedValue, onChange, name }) => {
                     />
                     <label htmlFor={`${name}-${index}`}>{option}</label>
                 </div>
+                
             ))}
         </div>
     );

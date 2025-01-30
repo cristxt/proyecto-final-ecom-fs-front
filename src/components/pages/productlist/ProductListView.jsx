@@ -16,7 +16,7 @@ const ProductListView = () => {
 
     return (
         <div>
-            <h1>Lista de productos</h1>
+            <h1>Descubre todas nuestras plantas</h1>
             <div className="cards-container">
                 {productos.map((producto) => (
                     <div className="Card" key={producto.id}>
