@@ -1,18 +1,22 @@
 .create-container {
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
     background-color: #F0F0F0;
     border: 1px solid #588A5C;
     border-radius: 5px;
 
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 
     display: flex;
     flex-direction: row;
 }
-
-.param-container {
+.id{
+    width: 5rem;
+}
+.description-container {
+    width: 20rem; /* Ajusta el valor según lo necesites */
     background-color: white;
     color: black;
 
@@ -21,20 +25,74 @@
 
     border: 1px solid #000;
     border-radius: 5px;
+  }
+  .name-container{
+    width: 10rem;
+    background-color: white;
+    color: black;
 
+    padding: 15px;
+    margin: 10px;
 
-}
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+  .price-container{
+    width: 3rem;
+    background-color: white;
+    color: black;
+
+    padding: 15px;
+    margin: 10px;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
 
 .input-container {
     border: none;
+    width: 3rem;
 }
 
 .button-container {
     background-color: orange;
     text-align: center;
 }
+.dropdown-containerAv{
+    background-color: #F0F0F0;
+    color: black;
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 8rem;
+
+.inline-flex {
+    font-size: 1rem;
+    text-align: center;
+    margin-left: 1rem;
+    margin-top: 1rem;
+
+}
+.relative flex{
+    color: black;
+
+}
+ 
+}
+.dropdown-container{
+    background-color: white;
+    color: black;
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 15rem;
+
+ 
+}
 .dropdown-image {
     width: 8%;
     height: 8%;
     margin-right: 0.625rem;
   }
+  .create-product{
+    margin-left:5rem;
+  }
+

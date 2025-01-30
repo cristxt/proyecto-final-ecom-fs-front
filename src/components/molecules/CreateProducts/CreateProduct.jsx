@@ -38,10 +38,11 @@ export function CreateProduct({ onProductCreated }) {
 
   return (
     <section className="create-container">
-       <div className="dropdown-containerAv">
+      <div className= "id"></div>
+       <div className="dropdown-container">
         <DropdownMultiSelectImg onChange={(selectedOption) => setPicture(selectedOption.imageUrl)} />
       </div>
-      <div className="param-container name-container">
+      <div className="name-container">
         <Input
           className="input-container"
           type="text"
@@ -50,7 +51,7 @@ export function CreateProduct({ onProductCreated }) {
           onChange={(e) => setName(e.target.value)} 
         />
       </div>
-      <div className="param-container description-container">
+      <div className="description-container">
         <Input
           className="input-container"
           type="text"
@@ -59,7 +60,7 @@ export function CreateProduct({ onProductCreated }) {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <div className="param-container price-container">
+      <div className="price-container">
         <Input
           className="input-container"
           type="number"
@@ -68,9 +69,7 @@ export function CreateProduct({ onProductCreated }) {
           onChange={(e) => setPrice(e.target.value)}
         />
       </div>
-      <div className="dropdown-container">
-        <DropdownBoolean onChange={setIsAvailable} /> 
-      </div>
+
       <div className="dropdown-containerAv">
         <DropdownMultiSelectAv onChange={setIsAvailable} />
       </div>

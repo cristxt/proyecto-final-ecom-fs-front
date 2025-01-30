@@ -1,11 +1,7 @@
-.admin-container .admin-product-list-container {
-    padding: 20px !important;
-    margin: 10px !important;
-}
+
 .admin-container .admin-product-list-container {
     width: 100%;
     box-sizing: border-box;
-    margin: 10px;
 }
 
 .admin-container .admin-product-list-header {
@@ -22,11 +18,24 @@
 }
 
 .admin-container .admin-product-item {
+    width: 88%;
+    background-color: #F0F0F0;
+    border: 1px solid #242424;
+    border-radius: 5px;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 2rem;
+    
+
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    margin-bottom: 15px;
+    flex-direction: row;
+
+
 }
 
 .admin-container .admin-product-image-container {
