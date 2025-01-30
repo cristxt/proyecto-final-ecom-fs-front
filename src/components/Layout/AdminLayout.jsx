@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { CreateProduct } from "../molecules/CreateProducts/CreateProduct";
 import ProductListViewAdmin from "../pages/productlist/ProductListViewAdmin"; 
 import "../Layout/AdminLayout.css";
+import HeaderAdmin from "../shared/Header/HeaderAdmin";
+
 
 const AdminLayout = () => {
     const [products, setProducts] = useState([]);
@@ -52,11 +54,11 @@ const AdminLayout = () => {
     };
 
     return (
+        <>
+
+        <HeaderAdmin/>
+
         <div className="admin-container">
-            <div className="logo">
-            <img src="/src/assets/logo-ecommerce.png" />
-            </div>
-            <h1>Panel de Administración</h1>
             
             <div className="admin-product-list-header">
                 <div>Id</div>
@@ -68,7 +70,7 @@ const AdminLayout = () => {
                 <div>Disponibilidad</div>
                 <div>Acciones</div>
             </div>
-            <div className="create-product-container">
+            <div className="create-product">
                 <CreateProduct onProductCreated={handleCreate} />
             </div>
 
@@ -80,6 +82,8 @@ const AdminLayout = () => {
                 />
             </div>
         </div>
+     </>
+
     );
 };
 
