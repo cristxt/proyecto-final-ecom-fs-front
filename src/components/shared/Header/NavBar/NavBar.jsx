@@ -24,7 +24,7 @@ function NavBar() {
         <Link to="/user" aria-label="Ir a perfil de usuario" onClick={handleClick} className={isLinkDisabled ? 'disabled-link' : ''}>
           <img className='logo-user' src={logo_user} alt='logo-user'/>
         </Link>
-        <Link to="/cart" aria-label="Ir al carrito">
+        <Link to="/checkout" aria-label="Ir al carrito">
           <img className='logo-cart' src={logo_cart} alt='logo-cart'/>
         </Link>
       </nav>
