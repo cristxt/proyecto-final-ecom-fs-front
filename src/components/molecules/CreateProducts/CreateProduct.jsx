@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CreateButton } from "../../atoms/Button/CreateButton";
 import { createProduct } from "../../../service/ApiService"; 
-import FileInput from "../../atoms/FileInput/FileInput";  // Importamos el nuevo FileInput
+import FileInput from "../../atoms/FileInput/FileInput";  
 import "./CreateProduct.css";
 
 export function CreateProduct({ onProductCreated }) {
@@ -61,52 +61,14 @@ export function CreateProduct({ onProductCreated }) {
 
   return (
     <section className="create-container">
-      <div className="file-input">
-        <FileInput
-          label="Selecciona una imagen"
-          accept="image/*"
-          onChange={handleFileUpload}
-        />
-      </div>
-
-      <div className="name-container">
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-
-      <div className="description-container">
-        <input
-          type="text"
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </div>
-
-      <div className="price-container">
-        <input
-          type="number"
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-      </div>
-
-      <div className="featured-container">
-        <label>
-          Disponible
-          <input
-            type="checkbox"
-            checked={featured}
-            onChange={(e) => setIsAvailable(e.target.checked)}
-          />
-        </label>
-      </div>
-
+      <FileInput accept="image/*" onChange={handleFileUpload} className="file-input" />
+      <input type="text" placeholder="Name" id="name" value={name} onChange={(e) => setName(e.target.value)} className="name-container" />
+      <input type="text" placeholder="Description" id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="description-container" />
+      <input type="number" id="price" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} className="price-container" />
+      <label className="featured-container">
+        Disponible
+        <input type="checkbox" checked={featured} onChange={(e) => setIsAvailable(e.target.checked)} />
+      </label>
       <CreateButton className="create-button" onClick={handleCreateProduct}>
         Crear Producto
       </CreateButton>

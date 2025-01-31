@@ -1,7 +1,5 @@
 import React from 'react';
-import './FileInput.css'; // Aquí puedes agregar estilos personalizados
-
-// Componente FileInput
+import './FileInput.css'; 
 const FileInput = ({ label, accept, onChange }) => {
   return (
     <div className="file-input-container">

@@ -58,7 +58,7 @@
 }
 
 .admin-container .admin-product-name {
-    width: 40%;
+    width: 15%;
     text-align: left;
     font-size: 0.9rem;
     padding: 10px !important;
@@ -74,27 +74,34 @@
 }
 
 .admin-container .admin-product-category {
-    width: 15%;
     text-align: left;
     font-size: 0.9rem;
+    width: 13rem;
+    height: 5rem;
     padding: 10px;
 }
 
 .admin-container .admin-product-price {
-    width: 10%;
     text-align: center;
     font-size: 0.9rem;
+    width: 9rem;
+    height: 5rem;
     padding: 10px;
 }
 
 .admin-container .availability, .admin-container .unavailable {
     font-size: 0.9rem;
-    padding: 8px 12px;
     text-align: center;
+    width: 9rem;
+    height: 5rem;
+    padding: 10px;
+
+    
 }
 
 .admin-container .admin-buttons {
-    width: 20%;
+    width: 9rem;
+    height: 5rem;
     text-align: center;
     padding: 10px;
     border-color: white;
@@ -119,6 +126,10 @@
     background-color: red;
     height: 3rem;
     width: 3rem;
+}
+
+.admin-container .admin-product-id{
+    width: 1.5rem;
 }
 
 
