@@ -20,8 +20,8 @@ const createProduct = async (newProduct) => {
     }
 }
 
-const updateProduct = async (id, product) => {
-    const response = await axios.put(`${apiProductUrl}/${id}`, product);
+const updateProduct = async (id) => {
+    const response = await axios.put(`${apiProductUrl}/${id}`);
     return response.data;
 }
 

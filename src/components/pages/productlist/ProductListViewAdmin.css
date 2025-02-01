@@ -127,6 +127,25 @@
     height: 3rem;
     width: 3rem;
 }
+.admin-container .save-button{
+    margin: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color:white;
+    background-color:darkgreen;
+    height: 3rem;
+    width: 3rem;  
+}
+.admin-container .cancel-button{
+    margin: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color:white;
+    background-color:black;
+    height: 3rem;
+    width: 3rem;  
+}
+
 
 .admin-container .admin-product-id{
     width: 1.5rem;
