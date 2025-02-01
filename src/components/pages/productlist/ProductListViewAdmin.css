@@ -19,7 +19,7 @@
     padding-right: 0.5rem;
     margin-left: 5rem;
     margin-right: 5rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     
 
     display: flex;
@@ -29,14 +29,15 @@
 }
 
 .admin-container .admin-product-image-container {
-    width: 10%;
+    width: 7rem;
     text-align: center;
-    padding-top: 1rem;
-    margin-right: 5px !important;
+    padding-top: 0.5rem;
+    margin-right: 0.5rem;
+
 }
 
 .admin-container .admin-product-image {
-    width: 70%;
+    width: 5rem;
     height: auto;
 }
 
@@ -50,11 +51,9 @@
 .admin-container .admin-product-name {
     width: 12%;
     text-align: left;
-    font-size: 0.9rem;
-    padding: 10px !important;
-    margin-right: 10px !important;
-    padding-left: 10px !important;
+  
 }
+
 
 .admin-container .admin-product-description {
     width: 18%;
@@ -170,60 +169,59 @@
 .admin-container .admin-product-id{
     width: 1.5rem;
 }
-.admin-container .editing-input-name {
+.editing-input-name {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    margin-right: 3rem;
-    height: 3rem;
+    height: 4rem;
+    width: 8rem;
+    margin-right: 1.5rem;
+
+}
+ .editing-input-description {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    width: 13rem;
+    margin-right: 1rem;
+   
+}
+
+.editing-input-price {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    height: 4rem;
+    width: 4rem;
+    margin-right:1rem;
+   
+}
+.editing-input-category {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    margin-right: 1rem;
+    height: 4rem;
     width: 10rem;
+    padding: 0.5rem;
+
+   
 }
-.admin-container .editing-input-description {
+.editing-input-featured {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    margin-right: 3rem;
-    height: 7rem;
-    width: 14rem;
+    height: 4rem;
+    width: 9rem;
+    margin-right: 1rem;
+
    
 }
-.admin-container .editing-input-price {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    margin-right: 3rem;
-    height: 3rem;
-    width: 5rem;
-   
-}
-.admin-container .editing-input-category {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    margin-right: 3rem;
-    height: 3.65rem;
-    width: 10rem;
-   
-}
-.admin-container .editing-input-featured {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    padding: 5px;
-    margin-right: 3rem;
-    height: 3.6rem;
-    width: 10rem;
-   
-}
-.admin-container .editing-input-name,
-.admin-container .editing-input-description,
-.admin-container .editing-input-price,
-.admin-container .editing-input-category,
-.admin-container .editing-input-featured {
+ .editing-input-name,
+ .editing-input-description,
+ .editing-input-price,
+ .editing-input-category,
+ .editing-input-featured {
     font-family: 'Inter', sans-serif;
     font-weight: 300; 
 }
