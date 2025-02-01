@@ -65,9 +65,8 @@ export function CreateProduct({ onProductCreated }) {
       <input type="text" placeholder="Name" id="name" value={name} onChange={(e) => setName(e.target.value)} className="name-container" />
       <input type="text" placeholder="Description" id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="description-container" />
       <input type="number" id="price" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} className="price-container" />
-      <label className="featured-container">
-        Disponible
-        <input type="checkbox" checked={featured} onChange={(e) => setIsAvailable(e.target.checked)} />
+      <label className="featured-container"> Disponible
+       <input type="checkbox" id="feature" checked={featured} onChange={(e) => setIsAvailable(e.target.checked)} />
       </label>
       <CreateButton className="create-button" onClick={handleCreateProduct}>
         Crear Producto
