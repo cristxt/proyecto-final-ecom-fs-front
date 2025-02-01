@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CreateButton } from "../../atoms/Button/CreateButton";
 import { createProduct } from "../../../service/ApiService"; 
-import FileInput from "../../atoms/FileInput/FileInput";  // Importamos el nuevo FileInput
+import FileInput from "../../atoms/FileInput/FileInput";  
 import "./CreateProduct.css";
 
 export function CreateProduct({ onProductCreated }) {
@@ -9,7 +9,8 @@ export function CreateProduct({ onProductCreated }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [featured, setIsAvailable] = useState(true);  
+  const [featured, setIsAvailable] = useState(true);
+  const [category, setCategory] = useState(""); 
 
   const handleFileUpload = async (event) => {
     const selectedFile = event.target.files[0];
@@ -46,7 +47,8 @@ export function CreateProduct({ onProductCreated }) {
       name,
       description,
       price: parseFloat(price),
-      featured,  
+      featured,
+      category,  
     };
 
     try {
@@ -61,53 +63,65 @@ export function CreateProduct({ onProductCreated }) {
 
   return (
     <section className="create-container">
-      <div className="file-input">
-        <FileInput
-          label="Selecciona una imagen"
-          accept="image/*"
-          onChange={handleFileUpload}
-        />
-      </div>
+      <FileInput 
+        accept="image/*" 
+        onChange={handleFileUpload} 
+        className="file-input"
+        id="file-input" 
+      />
+      <input 
+        type="text" 
+        placeholder="Name" 
+        id="name" 
+        value={name} 
+        onChange={(e) => setName(e.target.value)} 
+        className="name-container" 
+      />
+      <input 
+        type="text" 
+        placeholder="Description" 
+        id="description" 
+        value={description} 
+        onChange={(e) => setDescription(e.target.value)} 
+        className="description-container" 
+      />
+      <label className="category-container" htmlFor="category">
+      <select 
+        id="category" 
+        value={category} 
+        onChange={(e) => setCategory(e.target.value)} 
+        className="category-select"
+      >
+        <option value="4">Plantas de exterior</option>
+        <option value="2">Plantas de interior</option>
+        <option value="5">Plantas pet friendly</option>
+      </select>
+      </label>
+      <input 
+        type="number" 
+        id="price" 
+        placeholder="Price" 
+        value={price} 
+        onChange={(e) => setPrice(e.target.value)} 
+        className="price-container" 
+      />
+    <select 
+    id="feature" 
+    value={featured ? "Disponible" : "No disponible"} 
+    onChange={(e) => setIsAvailable(e.target.value === "Disponible")} 
+  >
+    <option value="Disponible">Disponible</option>
+    <option value="No disponible">No disponible</option>
+    </select>
 
-      <div className="name-container">
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
+      
+  
 
-      <div className="description-container">
-        <input
-          type="text"
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </div>
-
-      <div className="price-container">
-        <input
-          type="number"
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-      </div>
-
-      <div className="featured-container">
-        <label>
-          Disponible
-          <input
-            type="checkbox"
-            checked={featured}
-            onChange={(e) => setIsAvailable(e.target.checked)}
-          />
-        </label>
-      </div>
-
-      <CreateButton className="create-button" onClick={handleCreateProduct}>
+      <CreateButton 
+        className="create-button" 
+        onClick={handleCreateProduct}
+        id="create-button"
+      >
         Crear Producto
       </CreateButton>
     </section>
