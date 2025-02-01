@@ -7,7 +7,7 @@
   padding-bottom: 0.5rem;
   padding-left: 2rem;
   padding-right: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-left: 5rem;
 
   display: flex;
@@ -27,13 +27,13 @@
 .category-container {
   font-size: 0.9rem;
   text-align: left;
-  height: 3.65rem;
+  height: 4rem;
   width: 10rem;
   margin-bottom: 1rem;
 }
 
 .category-select {
-  height: 3.65rem;
+  height: 4rem;
   width: 10rem;
   padding: 0.5rem;
   font-size: 0.9rem;
@@ -49,37 +49,38 @@
 }
 
 #description {
-  width: 10rem; 
+  width: 13rem; 
   text-align: left;
-  font-size: 0.9rem;
 }
 
 .description-container {
-  width: 15rem; 
+  width: 13rem; 
   text-align: left;
-  font-size: 0.9rem;
 }
+#price{
+  width: 4rem;
 
+}
 .price-container {
   text-align: center;
   font-size: 0.9rem;
-  height: 3rem;
-  width: 5rem;
+  height: 4rem;
+  width: 4rem;
 }
 
 #featured {
   text-align: left;
   font-size: 0.9rem;
-  height: 3.6rem;
-  width: 10rem;
+  height: 4rem;
+  width: 9rem;
   font-family: 'Inter', sans-serif; 
   font-weight: 300; 
 }
 .featured.featured-container {
   text-align: left;
   font-size: 0.9rem;
-  height: 3.6rem;
-  width: 10rem;
+  height: 4rem;
+  width: 9rem;
   font-family: 'Inter', sans-serif; 
   font-weight: 300; 
 }
@@ -89,5 +90,10 @@
   height: 2rem;
   width: 5rem;
   text-align: center;
-  align-self: flex-start;  
+  align-self: flex-start;
+  margin-left: 0.1rem;
+}
+.mr-2 {
+  width: 1.5rem; 
+  height: 1.5rem;
 }

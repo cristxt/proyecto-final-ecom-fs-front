@@ -106,10 +106,10 @@ export function CreateProduct({ onProductCreated }) {
         className="price-container" 
       />
     <select 
-    id="feature" 
+    id="featured" 
     value={featured ? "Disponible" : "No disponible"} 
     onChange={(e) => setIsAvailable(e.target.value === "Disponible")} 
-  >
+    >
     <option value="Disponible">Disponible</option>
     <option value="No disponible">No disponible</option>
     </select>
