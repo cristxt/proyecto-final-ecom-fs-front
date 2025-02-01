@@ -1,44 +1,93 @@
 .create-container {
-  width: 100%;
-  max-width: 100rem;
+  width: 94%;
   background-color: #F0F0F0;
-  border: 1px solid #588A5C;
+  border: 1px solid #242424;
   border-radius: 5px;
-  padding: 1rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 0.5rem;
+  margin-top: 2rem;
+  margin-left: 5rem;
+
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  
+  font-family: 'Inter', sans-serif; 
+  font-weight: 300; 
 }
 
-.file-input, .name-container, .description-container, .price-container, .featured-container, .create-button {
-  width: 100%;
-  height: 3rem;
+#file-input,
+#file-input-container {
+  width: 8rem;
+  margin-right: 1rem;
 }
 
-.file-input {
-  grid-column: 2 / 3;
+.category-container {
+  font-size: 0.9rem;
+  text-align: left;
+  height: 3.65rem;
+  width: 10rem;
+  margin-bottom: 1rem;
 }
 
-.name-container {
-  grid-column: 3 / 4;
+.category-select {
+  height: 3.65rem;
+  width: 10rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+#name {
+  width: 8rem; 
+  height: 4rem;
+  text-align: left;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+#description {
+  width: 10rem; 
+  text-align: left;
+  font-size: 0.9rem;
 }
 
 .description-container {
-  grid-column: 4 / 5;
+  width: 15rem; 
+  text-align: left;
+  font-size: 0.9rem;
 }
 
 .price-container {
-  grid-column: 5 / 6;
+  text-align: center;
+  font-size: 0.9rem;
+  height: 3rem;
+  width: 5rem;
 }
 
-.featured-container {
-  grid-column: 6 / 7;
-  display: flex;
-  align-items: center;
+#featured {
+  text-align: left;
+  font-size: 0.9rem;
+  height: 3.6rem;
+  width: 10rem;
+  font-family: 'Inter', sans-serif; 
+  font-weight: 300; 
+}
+.featured.featured-container {
+  text-align: left;
+  font-size: 0.9rem;
+  height: 3.6rem;
+  width: 10rem;
+  font-family: 'Inter', sans-serif; 
+  font-weight: 300; 
 }
 
 .create-button {
-  grid-column: 7 / 8;
   background-color: orange;
+  height: 2rem;
+  width: 5rem;
   text-align: center;
+  align-self: flex-start;  
 }

@@ -9,7 +9,8 @@ export function CreateProduct({ onProductCreated }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [featured, setIsAvailable] = useState(true);  
+  const [featured, setIsAvailable] = useState(true);
+  const [category, setCategory] = useState(""); 
 
   const handleFileUpload = async (event) => {
     const selectedFile = event.target.files[0];
@@ -46,7 +47,8 @@ export function CreateProduct({ onProductCreated }) {
       name,
       description,
       price: parseFloat(price),
-      featured,  
+      featured,
+      category,  
     };
 
     try {
@@ -61,14 +63,65 @@ export function CreateProduct({ onProductCreated }) {
 
   return (
     <section className="create-container">
-      <FileInput accept="image/*" onChange={handleFileUpload} className="file-input" />
-      <input type="text" placeholder="Name" id="name" value={name} onChange={(e) => setName(e.target.value)} className="name-container" />
-      <input type="text" placeholder="Description" id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="description-container" />
-      <input type="number" id="price" placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} className="price-container" />
-      <label className="featured-container"> Disponible
-       <input type="checkbox" id="feature" checked={featured} onChange={(e) => setIsAvailable(e.target.checked)} />
+      <FileInput 
+        accept="image/*" 
+        onChange={handleFileUpload} 
+        className="file-input"
+        id="file-input" 
+      />
+      <input 
+        type="text" 
+        placeholder="Name" 
+        id="name" 
+        value={name} 
+        onChange={(e) => setName(e.target.value)} 
+        className="name-container" 
+      />
+      <input 
+        type="text" 
+        placeholder="Description" 
+        id="description" 
+        value={description} 
+        onChange={(e) => setDescription(e.target.value)} 
+        className="description-container" 
+      />
+      <label className="category-container" htmlFor="category">
+      <select 
+        id="category" 
+        value={category} 
+        onChange={(e) => setCategory(e.target.value)} 
+        className="category-select"
+      >
+        <option value="4">Plantas de exterior</option>
+        <option value="2">Plantas de interior</option>
+        <option value="5">Plantas pet friendly</option>
+      </select>
       </label>
-      <CreateButton className="create-button" onClick={handleCreateProduct}>
+      <input 
+        type="number" 
+        id="price" 
+        placeholder="Price" 
+        value={price} 
+        onChange={(e) => setPrice(e.target.value)} 
+        className="price-container" 
+      />
+    <select 
+    id="feature" 
+    value={featured ? "Disponible" : "No disponible"} 
+    onChange={(e) => setIsAvailable(e.target.value === "Disponible")} 
+  >
+    <option value="Disponible">Disponible</option>
+    <option value="No disponible">No disponible</option>
+    </select>
+
+      
+  
+
+      <CreateButton 
+        className="create-button" 
+        onClick={handleCreateProduct}
+        id="create-button"
+      >
         Crear Producto
       </CreateButton>
     </section>

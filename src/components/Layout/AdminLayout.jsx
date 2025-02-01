@@ -60,16 +60,16 @@ const AdminLayout = () => {
 
         <div className="admin-container">
             
-            <div className="admin-product-list-header">
-                <div>Id</div>
-                <div>Imagen</div>
-                <div>Nombre</div>
-                <div>Descripción</div>
-                <div>Categoría</div>
-                <div>Precio</div>
-                <div>Disponibilidad</div>
-                <div>Acciones</div>
-            </div>
+        <div className="admin-product-list-header">
+            <div className="product-id">Id</div>
+            <div className="product-image">Imagen</div>
+            <div className="product-name">Nombre</div>
+            <div className="product-description">Descripción</div>
+            <div className="product-category">Categoría</div>
+            <div className="product-price">Precio</div>
+            <div className="product-availability">Disponibilidad</div>
+            <div className="product-actions">Acciones</div>
+        </div>
             <div className="create-product">
                 <CreateProduct onProductCreated={handleCreate} />
             </div>
