@@ -1,17 +1,17 @@
 .user-layout {
     display: flex;
     justify-content: space-between;
-    padding-left: 6rem;
+    padding-left: 1rem;
     padding-right: 7rem;
     .filters-container {
         margin-top: 5rem;
-        margin-left:2rem;
+        margin-left:1rem;
         width: 15%; 
         padding: 1rem;
-        padding-left: 7rem;
+        padding-left: 5rem;
     }
     .product-list-container {
-        width: 70%; 
+        width: 80%; 
     }
     .filters-header {
         display: flex;
