@@ -42,8 +42,8 @@ const CheckoutLayout = () => {
 
     const updateQuantity = (id, delta) => {
         setProducts((prevProducts) =>
-            prevProducts.map((product) =>
-                product.id === id ? { ...product, quantity: Math.max(1, product.quantity + delta) } : product
+            prevProducts.map((producto) =>
+                producto.id === id ? { ...producto, quantity: Math.max(1, producto.quantity + delta) } : producto
             )
         );
     };
