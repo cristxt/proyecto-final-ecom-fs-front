@@ -35,6 +35,17 @@ const DetailProductCard = () => {
     }
   };
 
+  // Función para aumentar o reducir la cantidad
+  const handleQuantityChange = (amount) => {
+    // Solo actualizamos si la cantidad es mayor a 0
+    if (producto.quantity + amount > 0) {
+      setProducto(prevProducto => ({ 
+        ...prevProducto, 
+        quantity: prevProducto.quantity + amount 
+      }));
+    }
+  };
+
   return (
     <div className="detail-product-container">
       <article className="product-card">
@@ -49,9 +60,9 @@ const DetailProductCard = () => {
           </section>
           <section className="right-block-actions">
             <div className='colunm-quantity'>
-              <button onClick={() => updateQuantity(-1)} className='button-quantity'>-</button>
+              <button onClick={() => handleQuantityChange(-1)} className='button-quantity'>-</button>
               <span>{producto.quantity}</span> 
-              <button onClick={() => updateQuantity(1)} className='button-quantity'>+</button>
+              <button onClick={() => handleQuantityChange(1)} className='button-quantity'>+</button>
             </div>
             <div className='colunm-add-to-cart'>
               <button onClick={handleAddToCart}>Añadir al carrito</button> 
