@@ -5,9 +5,9 @@ import { useCart } from "../../../CartContext";
 import "./CheckoutLayout.css";
 
 const CheckoutLayout = () => {
-    const { cart, removeFromCart, updateQuantity, addToCart } = useCart(); 
+    const { cart, removeFromCart, updateQuantity, addToCart } = useCart();
     const [users, setUsers] = useState([]);
-    const [products, setProducts] = useState([]); 
+    const [products, setProducts] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [loading, setLoading] = useState(false);
     console.log(cart);
@@ -23,7 +23,7 @@ const CheckoutLayout = () => {
 
     const handleUserChange = (event) => {
         const userId = event.target.value;
-        setSelectedUser(userId); 
+        setSelectedUser(userId);
         if (userId) {
             setLoading(true);
             fetch(`http://localhost:8080/user/${userId}/products`)
@@ -35,7 +35,7 @@ const CheckoutLayout = () => {
                 })
                 .then((data) => {
                     console.log("Productos del usuario:", data);
-                    setProducts(data); 
+                    setProducts(data);
                 })
                 .catch((error) => console.error("Error al obtener productos:", error))
                 .finally(() => setLoading(false));
@@ -43,10 +43,40 @@ const CheckoutLayout = () => {
     };
 
     const handleAddToCart = (product) => {
-        addToCart(product); 
+        addToCart(product);
     };
 
     const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0).toFixed(2);
+
+    const purcharse = async () => {
+        if (!selectedUser) {
+            console.error("Debe seleccionar un usuario antes de finalizar la compra.");
+            alert("Debe seleccionar un usuario antes de finalizar la compra.");
+            return;
+        }
+
+        if (cart.length === 0) {
+            console.error("El carrito está vacío.");
+            alert("El carrito está vacío.");
+            return;
+        }
+
+        const productsIds = cart.map(product => product.id);
+
+        try {
+            const response = await axios.post(`http://localhost:8080/user/${selectedUser}/product`, productsIds);
+
+            if (response.status === 200) {
+                console.log("Compra realizada con éxito.");
+                alert("Compra realizada con éxito.");
+                clearCart();
+            } else {
+                console.error("Error al finalizar la compra.");
+            }
+        } catch (error) {
+            console.error("Error al realizar la compra:", error);
+        }
+    };
 
     return (
         <>
@@ -111,7 +141,7 @@ const CheckoutLayout = () => {
             )}
 
             <div className='container-checkout align-rigth'>
-                <Button className='button-checkout' variant="outline">Finalizar compra</Button>
+                <Button onClick={purcharse} className='button-checkout' variant="outline">Finalizar compra</Button>
             </div>
         </>
     );
