@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
 import Header from "../../shared/Header/Header";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "../../../CartContext";
 import "./CheckoutLayout.css";
 
 const CheckoutLayout = () => {
+    const { cart, removeFromCart, updateQuantity, addToCart } = useCart(); 
     const [users, setUsers] = useState([]);
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]); 
+    const [selectedUser, setSelectedUser] = useState(null);
     const [loading, setLoading] = useState(false);
-
+    console.log(cart);
     useEffect(() => {
         fetch("http://localhost:8080/user")
             .then((response) => response.json())
@@ -20,6 +23,7 @@ const CheckoutLayout = () => {
 
     const handleUserChange = (event) => {
         const userId = event.target.value;
+        setSelectedUser(userId); 
         if (userId) {
             setLoading(true);
             fetch(`http://localhost:8080/user/${userId}/products`)
@@ -31,28 +35,18 @@ const CheckoutLayout = () => {
                 })
                 .then((data) => {
                     console.log("Productos del usuario:", data);
-                    setProducts(Array.isArray(data) ? data.map(p => ({ ...p, quantity: 1 })) : []);
+                    setProducts(data); 
                 })
                 .catch((error) => console.error("Error al obtener productos:", error))
                 .finally(() => setLoading(false));
-        } else {
-            setProducts([]);
         }
     };
 
-    const updateQuantity = (id, delta) => {
-        setProducts((prevProducts) =>
-            prevProducts.map((producto) =>
-                producto.id === id ? { ...producto, quantity: Math.max(1, producto.quantity + delta) } : producto
-            )
-        );
+    const handleAddToCart = (product) => {
+        addToCart(product); 
     };
 
-    const removeProduct = (id) => {
-        setProducts((prevProducts) => prevProducts.filter((product) => product.id !== id));
-    };
-
-    const total = products.reduce((sum, product) => sum + product.price * product.quantity, 0).toFixed(2);
+    const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0).toFixed(2);
 
     return (
         <>
@@ -68,7 +62,7 @@ const CheckoutLayout = () => {
                 </select>
             </div>
 
-            {loading ? (
+            {selectedUser && loading ? (
                 <p>Cargando productos...</p>
             ) : (
                 <div className="cart-box">
@@ -78,10 +72,10 @@ const CheckoutLayout = () => {
                         <div className='colunm-price-title'><h2>Price</h2></div>
                     </div>
 
-                    {products.map((product) => (
-                        <div key={product.id} className='product-item colunms-display'>
+                    {cart.map((product,index) => (
+                        <div key={product.id + '-' + index} className='product-item colunms-display'>
                             <div className='colunm-products'>
-                                <button onClick={() => removeProduct(product.id)} className='button-remove'>X</button>
+                                <button onClick={() => removeFromCart(product.id)} className='button-remove'>X</button>
                                 <div className='product-box'>
                                     <img src={product.url_image || "/placeholder.svg"} alt={product.name} />
                                     <h3>{product.name}</h3>
@@ -99,6 +93,20 @@ const CheckoutLayout = () => {
                     ))}
 
                     <div className='price-total align-rigth'><p>Total: {total} €</p></div>
+                </div>
+            )}
+
+            {selectedUser && !loading && products.length > 0 && (
+                <div className="products-list">
+                    <h2>Productos disponibles:</h2>
+                    {products.map((product) => (
+                        <div key={product.id} className="product-card">
+                            <img src={product.url_image || "/placeholder.svg"} alt={product.name} />
+                            <h3>{product.name}</h3>
+                            <p>{product.price} €</p>
+                            <button onClick={() => handleAddToCart(product)}>Añadir al carrito</button>
+                        </div>
+                    ))}
                 </div>
             )}
 
