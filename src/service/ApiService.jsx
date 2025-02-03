@@ -31,7 +31,7 @@ const deleteProduct = async (id) => {
 };
 
 
-const apiUserUrl="http://localhost:3000/user"
+const apiUserUrl="http://localhost:8000/user"
 const getAllUser = async () => {
     const response = await axios.get(apiUserUrl);
     return response.data;

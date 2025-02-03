@@ -10,7 +10,7 @@ export function CreateProduct({ onProductCreated }) {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [featured, setIsAvailable] = useState(true);
-  const [category, setCategory] = useState(""); 
+  const [category, setCategory] = useState(4); 
 
   const handleFileUpload = async (event) => {
     const selectedFile = event.target.files[0];
@@ -41,6 +41,10 @@ export function CreateProduct({ onProductCreated }) {
       alert("Por favor, sube una imagen antes de crear el producto.");
       return;
     }
+    if (!category || isNaN(category)) {
+      alert("Por favor, selecciona una categoría válida.");
+      return;
+  }
 
     const newProduct = {
       url_image,  
@@ -48,8 +52,10 @@ export function CreateProduct({ onProductCreated }) {
       description,
       price: parseFloat(price),
       featured,
-      category,  
+      category_Id: category || 4,  
     };
+    console.log("Enviando producto:", newProduct);
+
 
     try {
       const createdProduct = await createProduct(newProduct);
@@ -87,15 +93,16 @@ export function CreateProduct({ onProductCreated }) {
       />
       <label className="category-container" htmlFor="category">
       <select 
-        id="category" 
-        value={category} 
-        onChange={(e) => setCategory(e.target.value)} 
-        className="category-select"
-      >
-        <option value="4">Plantas de exterior</option>
-        <option value="2">Plantas de interior</option>
-        <option value="5">Plantas pet friendly</option>
-      </select>
+  id="category" 
+  value={category} 
+  onChange={(e) => setCategory(parseInt(e.target.value, 10))} 
+  className="category-select"
+>
+  <option value="">Selecciona una categoría</option> 
+  <option value="4">Plantas de exterior</option>
+  <option value="2">Plantas de interior</option>
+  <option value="5">Plantas pet friendly</option>
+</select>
       </label>
       <input 
         type="number" 

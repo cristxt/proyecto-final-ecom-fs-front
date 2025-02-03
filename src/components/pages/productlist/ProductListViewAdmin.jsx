@@ -3,28 +3,36 @@ import "./ProductListViewAdmin.css";
 import { PencilIcon, TrashIcon, CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const categories = [
-    { id: '4', name: 'Plantas de exterior' },
-    { id: '2', name: 'Plantas de interior' },
-    { id: '5', name: 'Plantas pet friendly' }
+    { id: 4, name: 'Plantas de exterior' },
+    { id: 2, name: 'Plantas de interior' },
+    { id: 5, name: 'Plantas pet friendly' }
 ];
+
+
 const featured = [
     { boolean: true, name: 'Disponible' },
     { boolean: false, name: 'No disponible' }
 ];
+
+
 
 const ProductListViewAdmin = ({ products, onDelete, onUpdate }) => {
     const [editingId, setEditingId] = useState(null);
     const [editedProduct, setEditedProduct] = useState({
         name: "",
         description: "",
-        category: "",
+        category_Id: "", 
         price: "",
         featured: true, 
     });
 
     const handleEditClick = (producto) => {
         setEditingId(producto.id);
-        setEditedProduct({ ...producto });
+        const category = categories.find(cat => cat.name === producto.category);
+        setEditedProduct({
+            ...producto,
+            category_Id: category ? category.id : "", 
+        });
     };
 
     const handleCancel = () => {
@@ -36,12 +44,15 @@ const ProductListViewAdmin = ({ products, onDelete, onUpdate }) => {
         setEditedProduct({ ...editedProduct, [field]: e.target.value });
     };
 
-    const handleChangeCheckbox = (e, field) => {
-        setEditedProduct({ ...editedProduct, [field]: e.target.checked });
+    const handleChangeSelect = (e, field) => {
+        setEditedProduct({ ...editedProduct, [field]: field === 'featured' ? e.target.value === 'true' : e.target.value });
     };
 
     const handleSave = () => {
-        onUpdate(editingId, editedProduct);
+        onUpdate(editingId, {
+            ...editedProduct,
+            featured: editedProduct.featured === true, // Explicitly ensure it's a boolean
+        }); 
         setEditingId(null);
     };
 
@@ -72,8 +83,8 @@ const ProductListViewAdmin = ({ products, onDelete, onUpdate }) => {
                             />
                             <select
                                 className="editing-input-category"
-                                value={editedProduct.category || ""}
-                                onChange={(e) => handleChange(e, "category")}
+                                value={editedProduct.category_Id || ""}
+                                onChange={(e) => handleChangeSelect(e, "category_Id")}
                             >
                                 {categories.map((category) => (
                                     <option key={category.id} value={category.id}>
@@ -89,11 +100,11 @@ const ProductListViewAdmin = ({ products, onDelete, onUpdate }) => {
                             />
                             <select
                                 className="editing-input-featured"
-                                value={editedProduct.featured}
-                                onChange={(e) => handleChange(e, "featured")}
+                                value={editedProduct.featured.toString()} // Ensure this is stringified for proper select rendering
+                                onChange={(e) => handleChangeSelect(e, "featured")}
                             >
                                 {featured.map((status) => (
-                                    <option key={status.boolean} value={status.boolean}>
+                                    <option key={status.boolean} value={status.boolean.toString()}>
                                         {status.name}
                                     </option>
                                 ))}
@@ -104,7 +115,7 @@ const ProductListViewAdmin = ({ products, onDelete, onUpdate }) => {
                             <div className="admin-product-name">{producto.name}</div>
                             <div className="admin-product-description">{producto.description}</div>
                             <div className="admin-product-category">
-                                {categories.find(cat => cat.id === producto.category)?.name}
+                                {producto.category} {/* Show the category name */}
                             </div>
                             <div className="admin-product-price">{producto.price} €</div>
                             <div className="admin-product-feature">
@@ -113,32 +124,32 @@ const ProductListViewAdmin = ({ products, onDelete, onUpdate }) => {
                         </>
                     )}
 
-<div className="admin-buttons">
-    {editingId === producto.id ? (
-        <>
-            <button className="save-button" onClick={handleSave}>
-                <CheckIcon className="h-5 w-5" />
-            </button>
-            <button className="cancel-button" onClick={handleCancel}>
-                <XMarkIcon className="h-5 w-5" />
-            </button>
-        </>
-    ) : (
-        <>
-            <button className="edit-button" onClick={() => handleEditClick(producto)}>
-                <PencilIcon className="h-5 w-5" />
-            </button>
-            <button className="delete-button" onClick={() => onDelete(producto.id)}>
-                <TrashIcon className="h-5 w-5" />
-            </button>
-        </>
-    )}
-</div>
-
+                    <div className="admin-buttons">
+                        {editingId === producto.id ? (
+                            <>
+                                <button className="save-button" onClick={handleSave}>
+                                    <CheckIcon className="h-5 w-5" />
+                                </button>
+                                <button className="cancel-button" onClick={handleCancel}>
+                                    <XMarkIcon className="h-5 w-5" />
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <button className="edit-button" onClick={() => handleEditClick(producto)}>
+                                    <PencilIcon className="h-5 w-5" />
+                                </button>
+                                <button className="delete-button" onClick={() => onDelete(producto.id)}>
+                                    <TrashIcon className="h-5 w-5" />
+                                </button>
+                            </>
+                        )}
+                    </div>
                 </div>
             ))}
         </div>
     );
 };
+
 
 export default ProductListViewAdmin;
