@@ -100,7 +100,7 @@ const ProductListViewAdmin = ({ products, onDelete, onUpdate }) => {
                             />
                             <select
                                 className="editing-input-featured"
-                                value={editedProduct.featured.toString()} // Ensure this is stringified for proper select rendering
+                                value={editedProduct.featured.toString()} 
                                 onChange={(e) => handleChangeSelect(e, "featured")}
                             >
                                 {featured.map((status) => (
