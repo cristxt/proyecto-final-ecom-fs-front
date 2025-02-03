@@ -1,14 +1,17 @@
 import Header from "../../shared/Header/Header";
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { useCart } from "../../../CartContext";
+import { useCart } from "../../../CartContext"; 
+import axios from 'axios';
 import "./CheckoutLayout.css";
 
 const CheckoutLayout = () => {
+    const { cart, removeFromCart, updateQuantity } = useCart(); 
     const [products, setProducts] = useState([]);
+    const [users, setUsers] = useState([]); 
     const [selectedUser, setSelectedUser] = useState(null);
     const [loading, setLoading] = useState(false);
-    console.log(cart);
+    
     useEffect(() => {
         fetch("http://localhost:8080/user")
             .then((response) => response.json())
@@ -62,13 +65,16 @@ const CheckoutLayout = () => {
             if (response.status === 200) {
                 console.log("Compra realizada con éxito.");
                 alert("Compra realizada con éxito.");
-                clearCart();
             } else {
                 console.error("Error al finalizar la compra.");
             }
         } catch (error) {
             console.error("Error al realizar la compra:", error);
         }
+    };
+
+    const handleAddToCart = (product) => {
+        addToCart(product);
     };
 
     return (
@@ -95,7 +101,7 @@ const CheckoutLayout = () => {
                         <div className='colunm-price-title'><h2>Price</h2></div>
                     </div>
 
-                    {cart.map((product,index) => (
+                    {cart.map((product, index) => (
                         <div key={product.id + '-' + index} className='product-item colunms-display'>
                             <div className='colunm-products'>
                                 <button onClick={() => removeFromCart(product.id)} className='button-remove'>X</button>
