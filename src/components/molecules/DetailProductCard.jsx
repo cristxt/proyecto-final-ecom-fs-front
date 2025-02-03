@@ -35,9 +35,7 @@ const DetailProductCard = () => {
     }
   };
 
-  // Función para aumentar o reducir la cantidad
   const handleQuantityChange = (amount) => {
-    // Solo actualizamos si la cantidad es mayor a 0
     if (producto.quantity + amount > 0) {
       setProducto(prevProducto => ({ 
         ...prevProducto, 
