@@ -1,52 +1,78 @@
 import Header from "../../shared/Header/Header";
+import { getAllUser, addProductsToUser  } from './path/to/your/api';
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { useCart } from "../../../CartContext";
+import { useCart, clearCart } from "../../../CartContext";
 import "./CheckoutLayout.css";
 
 const CheckoutLayout = () => {
-    const { cart, removeFromCart, updateQuantity, addToCart } = useCart(); 
+    const { cart, removeFromCart, updateQuantity, addToCart } = useCart();
     const [users, setUsers] = useState([]);
-    const [products, setProducts] = useState([]); 
+    const [products, setProducts] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [loading, setLoading] = useState(false);
-    console.log(cart);
+
     useEffect(() => {
-        fetch("http://localhost:8080/user")
-            .then((response) => response.json())
-            .then((data) => {
+        const fetchUsers = async () => {
+            try {
+                const data = await getAllUser ();
                 console.log("Usuarios obtenidos:", data);
                 setUsers(Array.isArray(data) ? data : []);
-            })
-            .catch((error) => console.error("Error al obtener usuarios:", error));
+            } catch (error) {
+                console.error("Error al obtener usuarios:", error);
+            }
+        };
+
+        fetchUsers();
     }, []);
 
-    const handleUserChange = (event) => {
+    const handleUserChange = async (event) => {
         const userId = event.target.value;
-        setSelectedUser(userId); 
+        setSelectedUser(userId);
+
         if (userId) {
             setLoading(true);
-            fetch(`http://localhost:8080/user/${userId}/products`)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json();
-                })
-                .then((data) => {
-                    console.log("Productos del usuario:", data);
-                    setProducts(data); 
-                })
-                .catch((error) => console.error("Error al obtener productos:", error))
-                .finally(() => setLoading(false));
+
+            try {
+                const userProducts = await getAllUser ();
+                console.log("Productos del usuario:", userProducts);
+                setProducts(userProducts);
+            } catch (error) {
+                console.error("Error al obtener productos:", error);
+            } finally {
+                setLoading(false);
+            }
         }
     };
 
     const handleAddToCart = (product) => {
-        addToCart(product); 
+        addToCart(product);
     };
 
     const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0).toFixed(2);
+
+    const purcharse = async () => {
+        if (!selectedUser ) {
+            alert("Debe seleccionar un usuario antes de finalizar la compra.");
+            return;
+        }
+
+        if (cart.length === 0) {
+            alert("El carrito está vacío.");
+            return;
+        }
+
+        const productsIds = cart.map(product => product.id);
+
+        try {
+            await addProductsToUser(selectedUser, productsIds);
+            alert("Compra realizada con éxito.");
+            console.log("Vaciando carrito...");
+            clearCart();
+        } catch (error) {
+            console.error("Error al realizar la compra:", error);
+        }
+    };
 
     return (
         <>
@@ -111,7 +137,7 @@ const CheckoutLayout = () => {
             )}
 
             <div className='container-checkout align-rigth'>
-                <Button className='button-checkout' variant="outline">Finalizar compra</Button>
+                <Button onClick={purcharse} className='button-checkout' variant="outline">Finalizar compra</Button>
             </div>
         </>
     );
