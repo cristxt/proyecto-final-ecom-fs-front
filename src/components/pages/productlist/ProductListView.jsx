@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from "react";
+import { getAllProduct, getProductByCategory } from "@/service/ApiService";
 import "./ProductListView.css";
 
-const ProductListView = () => {
+const ProductListView = ({ categoryId }) => {
     const [productos, setProductos] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8080/product') 
-            .then(response => response.json())
-            .then(data => {
-                console.log("Productos obtenidos:", data);  
+        const fetchProducts = async () => {
+            try {
+                let data;
+                if (categoryId) data = await getProductByCategory(categoryId);
+                else data = await getAllProduct();
+
+                console.log("Productos obtenidos:", data);
                 setProductos(data);
-            })
-            .catch(error => console.error('Error:', error));
-    }, []);
+            } catch (error) {
+                console.error('Error al obtener productos:', error);
+                setError(error);
+            }
+        };
+
+        fetchProducts();
+    }, [categoryId]);
+
+    if (error) return <div>Error: {error.message}</div>;
 
     return (
         <div>

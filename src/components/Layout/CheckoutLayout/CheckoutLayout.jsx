@@ -1,17 +1,17 @@
 import Header from "../../shared/Header/Header";
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { useCart } from "../../../CartContext"; 
+import { useCart } from "@/CartContext";
 import axios from 'axios';
 import "./CheckoutLayout.css";
 
 const CheckoutLayout = () => {
-    const { cart, removeFromCart, updateQuantity, clearCart } = useCart(); 
+    const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
     const [products, setProducts] = useState([]);
-    const [users, setUsers] = useState([]); 
+    const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [loading, setLoading] = useState(false);
-    
+
     useEffect(() => {
         fetch("http://localhost:8080/user")
             .then((response) => response.json())
@@ -21,7 +21,6 @@ const CheckoutLayout = () => {
             })
             .catch((error) => console.error("Error al obtener usuarios:", error));
     }, []);
-
 
     const handleUserChange = (event) => {
         const userId = event.target.value;
@@ -74,7 +73,7 @@ const CheckoutLayout = () => {
         } catch (error) {
             console.error("Error al realizar la compra:", error);
         }
-            
+
     };
 
     const handleAddToCart = (product) => {
