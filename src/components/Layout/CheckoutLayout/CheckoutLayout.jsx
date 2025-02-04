@@ -6,7 +6,7 @@ import axios from 'axios';
 import "./CheckoutLayout.css";
 
 const CheckoutLayout = () => {
-    const { cart, removeFromCart, updateQuantity } = useCart(); 
+    const { cart, removeFromCart, updateQuantity, clearCart } = useCart(); 
     const [products, setProducts] = useState([]);
     const [users, setUsers] = useState([]); 
     const [selectedUser, setSelectedUser] = useState(null);
@@ -21,6 +21,7 @@ const CheckoutLayout = () => {
             })
             .catch((error) => console.error("Error al obtener usuarios:", error));
     }, []);
+
 
     const handleUserChange = (event) => {
         const userId = event.target.value;
@@ -65,12 +66,15 @@ const CheckoutLayout = () => {
             if (response.status === 200) {
                 console.log("Compra realizada con éxito.");
                 alert("Compra realizada con éxito.");
+                console.log("Vaciando carrito...");
+                clearCart();
             } else {
                 console.error("Error al finalizar la compra.");
             }
         } catch (error) {
             console.error("Error al realizar la compra:", error);
         }
+            
     };
 
     const handleAddToCart = (product) => {
