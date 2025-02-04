@@ -217,6 +217,14 @@
 
    
 }
+editing-input-category{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    height: 4rem;
+    width: 9rem;
+    margin-right: 1rem;
+}
  .editing-input-name,
  .editing-input-description,
  .editing-input-price,
