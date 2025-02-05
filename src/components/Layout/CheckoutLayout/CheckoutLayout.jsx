@@ -129,19 +129,6 @@ const CheckoutLayout = () => {
                 </div>
             )}
 
-            {selectedUser && !loading && products.length > 0 && (
-                <div className="products-list">
-                    <h2>Productos disponibles:</h2>
-                    {products.map((product) => (
-                        <div key={product.id} className="product-card">
-                            <img src={product.url_image || "/placeholder.svg"} alt={product.name} />
-                            <h3>{product.name}</h3>
-                            <p>{product.price} €</p>
-                            <button onClick={() => handleAddToCart(product)}>Añadir al carrito</button>
-                        </div>
-                    ))}
-                </div>
-            )}
 
             <div className='container-checkout align-rigth'>
                 <Button onClick={purcharse} className='button-checkout' variant="outline">Finalizar compra</Button>
