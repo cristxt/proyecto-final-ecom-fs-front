@@ -15,7 +15,7 @@ function NavBar() {
   return (
     <>
       <div className='logo-ecommerce'>
-        <Link to="/"><img src={logo_ecommerce} alt='logo'/></Link>
+        <Link to="http://localhost:5173/plantas"><img src={logo_ecommerce} alt='logo'/></Link>
       </div>
       <nav className='navbar'>
         <Link to="/plantas-de-interior">Plantas de interior</Link>

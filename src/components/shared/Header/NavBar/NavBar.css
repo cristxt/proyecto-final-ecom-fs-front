@@ -29,3 +29,8 @@
   pointer-events: none;
   cursor: not-allowed;
 }
+.logo-ecommerce a {
+  display: inline-block; 
+  padding: 10px; 
+  cursor: pointer; 
+}
