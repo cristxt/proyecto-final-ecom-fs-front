@@ -23,39 +23,35 @@ const UserLayout = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             let url = "http://localhost:8080/product";
-        
+
             if (categoriaSeleccionada) {
                 url += `/category/${categoriaSeleccionada}`;
-            } 
-        
+            }
+
             if (rangoPrecio) {
                 let minPrice = 0;
                 let maxPrice = 100;
                 console.log(rangoPrecio)
-        
+
                 if (rangoPrecio === "Menos de 20€") {
                     maxPrice = 20;
                 } else if (rangoPrecio === "Entre 20€ y 40€") {
                     minPrice = 20;
                     maxPrice = 40;
                 } else if (rangoPrecio === "Más de 40€") {
-                    minPrice = 40;
+                    minPrice = 41;
                 }
-        
-                if (url.includes('?')) {
-                    url += `/price/range?minPrice=${minPrice}&maxPrice=${maxPrice}`;
-                } else {
-                    url += `/price/range?minPrice=${minPrice}&maxPrice=${maxPrice}`;
-                }
+
+                url += url.includes('?') ? `&minPrice=${minPrice}&maxPrice=${maxPrice}` : `?minPrice=${minPrice}&maxPrice=${maxPrice}`;
             }
-    
+
             console.log("URL de la solicitud:", url);
-    
+
             const response = await fetch(url);
             const data = await response.json();
             setProductos(data);
         };
-    
+
         fetchProducts();
     }, [rangoPrecio, categoriaSeleccionada]);
 
@@ -73,7 +69,10 @@ const UserLayout = () => {
                         title="Categoría"
                         options={categorias}
                         selectedValue={categoriaSeleccionada}
-                        onChange={(id) => setCategoriaSeleccionada(id)} 
+                        onChange={(id) => {
+                            const categoriaId = parseInt(id, 10);
+                            setCategoriaSeleccionada(categoriaId);
+                        }}
                         name="categoria"
                     />
 
@@ -87,7 +86,7 @@ const UserLayout = () => {
                 </div>
 
                 <div className="product-list-container">
-                    <ProductListView productos={productos} /> 
+                    <ProductListView productos={productos} />
                 </div>
             </div>
         </>
