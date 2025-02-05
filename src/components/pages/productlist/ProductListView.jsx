@@ -1,19 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ProductListView.css";
 
-const ProductListView = () => {
-    const [productos, setProductos] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:8080/product') 
-            .then(response => response.json())
-            .then(data => {
-                console.log("Productos obtenidos:", data);  
-                setProductos(data);
-            })
-            .catch(error => console.error('Error:', error));
-    }, []);
-
+const ProductListView = ({ productos }) => {  
     return (
         <div>
             <h1>Descubre todas nuestras plantas</h1>

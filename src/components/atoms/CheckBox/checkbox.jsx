@@ -1,23 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
+import "./checkbox.css";
 
 const Checkbox = ({ title, options, selectedValue, onChange, name }) => {
+    const handleChange = (e) => {
+        
+        onChange(e.target.value);
+    };
+
     return (
-        <div className="checkbox-group">
+        <div>
             <h3>{title}</h3>
-            {options.map((option, index) => (
-                <div className="checkbox-item" key={index}>
+                <div className="flex flex-col">
+           
+                {options.map((option) => (
+                <label key={option.id || option}>
                     <input
                         type="checkbox"
-                        id={`${name}-${index}`}
                         name={name}
-                        value={option}
-                        checked={selectedValue === option}
-                        onChange={(e) => onChange(e.target.value)}
+                        value={option.id || option} 
+                        checked={selectedValue === (option.id || option)} 
+                        onChange={handleChange}
                     />
-                    <label htmlFor={`${name}-${index}`}>{option}</label>
+                    {option.name || option}  
+                </label>
+                ))}
                 </div>
-                
-            ))}
+          
         </div>
     );
 };

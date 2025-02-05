@@ -1,53 +1,45 @@
-@import "@radix-ui/colors/black-alpha.css";
-@import "@radix-ui/colors/violet.css";
-
-
 .checkbox-group {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
+}
 
-}
-.CheckboxRoot {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #688A6A;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-   
-}
-.CheckboxRoot[data-state="checked"] {
-    background-color: #688A6A; 
-    border-color: #688A6A;
-}
 .checkbox-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color:#688A6A;
+    color: #688A6A;
     font-weight: lighter;
-
 }
 
+.checkbox-group h3 {
+    margin: 0;
+}
 
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #688A6A;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
 
-.CheckboxIndicator {
-    color: #ffffff;
+/* Estilo cuando el checkbox está marcado */
+input[type="checkbox"]:checked {
+    background-color: #688A6A;
+    border-color: #688A6A;
+}
+
+input[type="checkbox"]:checked + label {
+    color: #688A6A;  /* Color de la etiqueta cuando está marcado */
 }
 
 .Label {
-	color: white;
-	padding-left: 15px;
-	font-size: 15px;
-	line-height: 1;
+    color: #688A6A;
+    padding-left: 15px;
+    font-size: 15px;
+    line-height: 1;
     font-weight: lighter;
 }
-
-
-
-
-
