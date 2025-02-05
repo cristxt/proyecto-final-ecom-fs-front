@@ -1,0 +1,18 @@
+.create-button {
+    background-color: orange;
+    color: white;
+    border: none;
+    width: 7rem;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-left: 2rem;
+    margin-top:0.5rem;
+  }
+  .create-button:hover {
+    background-color: #c0530f;
+  }
+  

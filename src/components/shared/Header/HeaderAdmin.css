@@ -1,0 +1,17 @@
+
+.header-container {
+  display: flex;
+  align-items: center;
+
+  margin: 1rem 1rem;
+  background-color: white;
+}
+.logo-ecommerce-admin img {
+  margin-right: 14rem;
+  font-size: 1px;
+}
+.logo-ecommerce-admin a {
+  display: inline-block; 
+  padding: 10px; 
+  cursor: pointer; 
+}

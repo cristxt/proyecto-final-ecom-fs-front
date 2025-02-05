@@ -1,0 +1,99 @@
+.create-container {
+  width: 94%;
+  background-color: #F0F0F0;
+  border: 1px solid #242424;
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 0.5rem;
+  margin-top: 1rem;
+  margin-left: 5rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  font-family: 'Inter', sans-serif; 
+  font-weight: 300; 
+}
+
+#file-input,
+#file-input-container {
+  width: 8rem;
+  margin-right: 1rem;
+}
+
+.category-container {
+  font-size: 0.9rem;
+  text-align: left;
+  height: 4rem;
+  width: 10rem;
+  margin-bottom: 1rem;
+}
+
+.category-select {
+  height: 4rem;
+  width: 10rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+#name {
+  width: 8rem; 
+  height: 4rem;
+  text-align: left;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+#description {
+  width: 13rem; 
+  text-align: left;
+}
+
+.description-container {
+  width: 13rem; 
+  text-align: left;
+}
+#price{
+  width: 4rem;
+
+}
+.price-container {
+  text-align: center;
+  font-size: 0.9rem;
+  height: 4rem;
+  width: 4rem;
+}
+
+#featured {
+  text-align: left;
+  font-size: 0.9rem;
+  height: 4rem;
+  width: 9rem;
+  font-family: 'Inter', sans-serif; 
+  font-weight: 300; 
+}
+.featured.featured-container {
+  text-align: left;
+  font-size: 0.9rem;
+  height: 4rem;
+  width: 9rem;
+  font-family: 'Inter', sans-serif; 
+  font-weight: 300; 
+}
+
+.create-button {
+  background-color: orange;
+  height: 2rem;
+  width: 5rem;
+  text-align: center;
+  align-self: flex-start;
+  margin-left: 0.1rem;
+}
+.mr-2 {
+  width: 1.5rem; 
+  height: 1.5rem;
+}

@@ -1,0 +1,241 @@
+
+.admin-container .admin-product-list-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+
+.admin-container .admin-product-item {
+    width: 83%;
+    background-color: #F0F0F0;
+    border: 1px solid #242424;
+    border-radius: 5px;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 0.5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 1rem;
+    
+
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.admin-container .admin-product-image-container {
+    width: 7rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    margin-right: 0.5rem;
+
+}
+
+.admin-container .admin-product-image {
+    width: 5rem;
+    height: auto;
+}
+
+.admin-container .admin-product-id {
+    width: 20%;
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 10px;
+}
+
+.admin-container .admin-product-name {
+    width: 12%;
+    text-align: left;
+  
+}
+
+
+.admin-container .admin-product-description {
+    width: 18%;
+    text-align: left;
+    font-size: 0.9rem;
+    padding-top: 1rem;
+}
+
+.admin-container .admin-product-category {
+    text-align: left;
+    font-size: 0.9rem;
+    width: 13rem;
+    height: 5rem;
+    padding-top: 1rem;
+}
+.admin-container .admin-product-feature{
+    text-align: left;
+    font-size: 0.9rem;
+    width: 8rem;
+    height: 5rem;
+    padding-top: 1rem;
+    padding-left: 2rem;
+}
+
+.admin-container .admin-product-price {
+    text-align: center;
+    font-size: 0.9rem;
+    width: 6rem;
+    height: 5rem;
+    padding-top: 1rem;
+}
+
+
+
+.admin-container .admin-buttons {
+    width: 7rem;
+    height: 4rem;
+    text-align: center;
+    border-color: white;
+    padding-top: 1rem;
+    padding-right: -2rem;
+}
+
+.admin-container .edit-button {
+    margin: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #4A90E2;
+    border: 2px solid #4A90E2;
+    height: 2rem;
+    width: 2rem;
+}
+
+.admin-container .edit-button:hover {
+    background-color: #0d4e93;  
+    border-color: #0d4e93;  
+}
+
+.admin-container .delete-button {
+    margin: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #D0021B;
+    border: 2px solid #D0021B;
+    height: 2rem;
+    width: 2rem;
+}
+
+.admin-container .delete-button:hover {
+    background-color: #750404;  
+    border-color: #750404;  
+}
+
+.admin-container .save-button {
+    margin: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #4b860b;
+    border: 2px solid #4b860b;
+    height: 2rem;
+    width: 2rem;
+}
+
+.admin-container .save-button:hover {
+    background-color: #346006;  
+    border-color: #346006;  
+}
+
+.admin-container .cancel-button {
+    margin: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background-color: #F0F0F0;
+    border: 2px solid black;
+    height: 2rem;
+    width: 2rem;
+}
+
+.admin-container .cancel-button:hover {
+    background-color: #929292;  
+    border-color: #000000;  
+}
+
+
+.save-button svg,
+.cancel-button svg,
+.edit-button svg,
+.delete-button svg {
+    transform: scale(1.5);  
+}
+
+.admin-container .admin-product-id{
+    width: 1.5rem;
+}
+.editing-input-name {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    height: 4rem;
+    width: 8rem;
+    margin-right: 1.5rem;
+
+}
+ .editing-input-description {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    width: 13rem;
+    margin-right: 1rem;
+   
+}
+
+.editing-input-price {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    height: 4rem;
+    width: 4rem;
+    margin-right:1rem;
+   
+}
+.editing-input-category {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    margin-right: 1rem;
+    height: 4rem;
+    width: 10rem;
+    padding: 0.5rem;
+
+   
+}
+.editing-input-featured {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    height: 4rem;
+    width: 9rem;
+    margin-right: 1rem;
+
+   
+}
+editing-input-category{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    height: 4rem;
+    width: 9rem;
+    margin-right: 1rem;
+}
+ .editing-input-name,
+ .editing-input-description,
+ .editing-input-price,
+ .editing-input-category,
+ .editing-input-featured {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300; 
+}
+
+
+
+
+
+

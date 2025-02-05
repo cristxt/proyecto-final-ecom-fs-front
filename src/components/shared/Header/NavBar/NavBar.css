@@ -1,0 +1,36 @@
+.logo-ecommerce {
+  margin-right: auto;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #688A6A;
+  }
+
+  img {
+    max-width: 100%;
+    height: 2rem;
+  }
+}
+
+.disabled-link {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.logo-ecommerce a {
+  display: inline-block; 
+  padding: 10px; 
+  cursor: pointer; 
+}
