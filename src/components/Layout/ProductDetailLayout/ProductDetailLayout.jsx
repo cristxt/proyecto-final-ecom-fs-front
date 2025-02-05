@@ -1,6 +1,5 @@
 import React from "react";
-import "./ProductDetailLayout.css";
-import DetailProductCard from "../../molecules/DetailProductCard";
+import DetailProductCard from "../../molecules/DetailProductCard/DetailProductCard";
 import Header from "../../shared/Header/Header";
 import { useCart } from "../../../CartContext";
 

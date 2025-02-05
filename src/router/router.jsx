@@ -1,9 +1,9 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import AdminLayout from "../components/Layout/AdminLayout.jsx";
-import UserLayout from "../components/Layout/UserLayout.jsx";
+import AdminLayout from "../components/Layout/AdminLayout/AdminLayout.jsx";
+import UserLayout from "../components/Layout/UserLayout/UserLayout.jsx";
 import CheckoutLayout from "../components/Layout/CheckoutLayout/CheckoutLayout.jsx";
-import ProductListView from "../components/pages/productlist/ProductListView.jsx";
+import ProductListView from "../components/molecules/productlist/ProductListView.jsx";
 import ProductDetailLayout from "../components/Layout/ProductDetailLayout/ProductDetailLayout.jsx";
 export const router = createBrowserRouter([
     {

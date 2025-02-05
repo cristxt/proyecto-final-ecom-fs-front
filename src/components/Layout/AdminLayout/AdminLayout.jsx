@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { CreateProduct } from "../molecules/CreateProducts/CreateProduct";
-import ProductListViewAdmin from "../pages/productlist/ProductListViewAdmin"; 
-import "../Layout/AdminLayout.css";
-import HeaderAdmin from "../shared/Header/HeaderAdmin";
+import { CreateProduct } from "../../molecules/CreateProducts/CreateProduct";
+import ProductListViewAdmin from "../../molecules/productlist/ProductListViewAdmin";
+import "./AdminLayout.css";
+import HeaderAdmin from "../../shared/Header/HeaderAdmin";
 
 
 const AdminLayout = () => {

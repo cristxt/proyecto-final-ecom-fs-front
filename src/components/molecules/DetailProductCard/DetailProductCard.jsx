@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCart } from "../../CartContext";
+import { useCart } from "../../../CartContext";
 
-import "../molecules/DetailProductCard.css";
+import "./DetailProductCard.css";
 
 const DetailProductCard = () => {
   const { id } = useParams(); 

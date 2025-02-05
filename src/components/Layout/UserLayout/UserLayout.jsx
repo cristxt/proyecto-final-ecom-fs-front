@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ProductListView from "../pages/productlist/ProductListView";
-import Checkbox from "../atoms/CheckBox/checkbox";
-import Header from "../shared/Header/Header";
-import "../Layout/UserLayout.css";
+import ProductListView from "../../molecules/productlist/ProductListView";
+import Checkbox from "../../atoms/CheckBox/checkbox";
+import Header from "../../shared/Header/Header";
+import "./UserLayout.css";
 
 const UserLayout = () => {
     const categorias = [
