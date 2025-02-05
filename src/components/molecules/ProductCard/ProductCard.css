@@ -45,17 +45,7 @@ li {
     }
     
 }
-@media (max-width: 768px) {
-    ul {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-}
 
-@media (max-width: 480px) {
-    ul {
-        grid-template-columns: 1fr; 
-    }
-}
 }
 
 

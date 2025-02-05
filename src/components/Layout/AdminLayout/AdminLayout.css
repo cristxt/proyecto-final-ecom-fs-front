@@ -5,76 +5,77 @@
     display: flex;
     flex-direction: column;
     margin-left:6rem;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    gap:6rem;
-    margin-left:3rem;
-    background-color: white;
-    margin-bottom: 2rem;
+    .logo {
+        display: flex;
+        align-items: center;
+        gap:6rem;
+        margin-left:3rem;
+        background-color: white;
+        margin-bottom: 2rem;
+        
+      }
     
-  }
-
-
-.logo img {
-    width: 18%; 
-    height: 18%;
-}
-
-.create-product{
-    width: 88%;
-}
-
-
-.create-product-container {
-    border-radius: 8px;
-text-align: center;
-}
-
-.product-list-container {
-    padding: 20px;
-    border-radius: 8px;
-    padding-left: 8rem;
-
-}
-
-.admin-product-list-header {
-    display: flex;
-    justify-content: row;
-    width: 83%;
-  background-color: #688A6A;
-  color:white;
-  border: 1px solid #242424;
-  border-radius: 5px;
-
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 2rem;
-  padding-right: 0.5rem;
-  margin-left: 5rem;
-  margin-right: 5rem;
-  margin-top: 2rem;
-  
-}
-.admin-product-list-header .product-id {
-padding-right: 2rem;
-}
-.admin-product-list-header .product-image {
-    padding-right: 4rem;
-}
-.admin-product-list-header .product-name {
-    padding-right: 6rem;
-}
-.admin-product-list-header .product-description {
-    padding-right: 10rem;
-}
-.admin-product-list-header .product-category {
-    padding-right: 4rem;
-}
-.admin-product-list-header .product-price {
-    padding-right: 3rem;
-}
-.admin-product-list-header .product-availability {
-    padding-right: 4rem;
+    
+    .logo img {
+        width: 18%; 
+        height: 18%;
+    }
+    
+    .create-product{
+        width: 88%;
+    }
+    
+    
+    .create-product-container {
+        border-radius: 8px;
+    text-align: center;
+    }
+    
+    .product-list-container {
+        padding: 20px;
+        border-radius: 8px;
+        padding-left: 8rem;
+    
+    }
+    
+    .admin-product-list-header {
+        display: flex;
+        justify-content: row;
+        width: 83%;
+      background-color: #688A6A;
+      color:white;
+      border: 1px solid #242424;
+      border-radius: 5px;
+    
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 2rem;
+      padding-right: 0.5rem;
+      margin-left: 5rem;
+      margin-right: 5rem;
+      margin-top: 2rem;
+      
+    }
+    .admin-product-list-header .product-id {
+    padding-right: 2rem;
+    }
+    .admin-product-list-header .product-image {
+        padding-right: 4rem;
+    }
+    .admin-product-list-header .product-name {
+        padding-right: 6rem;
+    }
+    .admin-product-list-header .product-description {
+        padding-right: 10rem;
+    }
+    .admin-product-list-header .product-category {
+        padding-right: 4rem;
+    }
+    .admin-product-list-header .product-price {
+        padding-right: 3rem;
+    }
+    .admin-product-list-header .product-availability {
+        padding-right: 4rem;
+    }
+    
 }

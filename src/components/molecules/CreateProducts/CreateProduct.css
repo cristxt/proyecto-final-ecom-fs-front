@@ -16,7 +16,7 @@
   
   font-family: 'Inter', sans-serif; 
   font-weight: 300; 
-}
+
 
 #file-input,
 #file-input-container {
@@ -75,15 +75,16 @@
   width: 9rem;
   font-family: 'Inter', sans-serif; 
   font-weight: 300; 
+  .featured.featured-container {
+    text-align: left;
+    font-size: 0.9rem;
+    height: 4rem;
+    width: 9rem;
+    font-family: 'Inter', sans-serif; 
+    font-weight: 300; 
+  }
 }
-.featured.featured-container {
-  text-align: left;
-  font-size: 0.9rem;
-  height: 4rem;
-  width: 9rem;
-  font-family: 'Inter', sans-serif; 
-  font-weight: 300; 
-}
+
 
 .create-button {
   background-color: orange;
@@ -96,4 +97,5 @@
 .mr-2 {
   width: 1.5rem; 
   height: 1.5rem;
+}
 }
