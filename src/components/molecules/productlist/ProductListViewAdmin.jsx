@@ -51,7 +51,7 @@ const ProductListViewAdmin = ({ products, onDelete, onUpdate }) => {
     const handleSave = () => {
         onUpdate(editingId, {
             ...editedProduct,
-            featured: editedProduct.featured === true, // Explicitly ensure it's a boolean
+            featured: editedProduct.featured === true, 
         }); 
         setEditingId(null);
     };
@@ -115,7 +115,7 @@ const ProductListViewAdmin = ({ products, onDelete, onUpdate }) => {
                             <div className="admin-product-name">{producto.name}</div>
                             <div className="admin-product-description">{producto.description}</div>
                             <div className="admin-product-category">
-                                {producto.category} {/* Show the category name */}
+                                {producto.category} 
                             </div>
                             <div className="admin-product-price">{producto.price} €</div>
                             <div className="admin-product-feature">

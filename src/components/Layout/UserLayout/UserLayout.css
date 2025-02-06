@@ -7,19 +7,17 @@
     .filters-container {
         margin-top: 5rem;
         margin-left: 1rem;
-        width: 15%; 
+        width: 13%; 
         padding: 1rem;
         padding-left: 5rem;
         display: flex;
         flex-direction: column;
         gap: 1rem; 
-        display: flex;
-        flex-direction: column;
         height: 40rem;
     }
 
     .product-list-container {
-        width: 80%;
+        width: 99%;
     }
 
     .filters-header {
@@ -43,6 +41,7 @@
         flex-direction: column;
         gap: 1rem; 
     }
+    
 
     .checkbox-item {
         display: flex;

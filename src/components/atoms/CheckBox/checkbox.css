@@ -11,6 +11,7 @@
     gap: 0.5rem;
     color: #688A6A;
     font-weight: lighter;
+    
 }
 
 .checkbox-group h3 {
@@ -26,14 +27,13 @@ input[type="checkbox"] {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-/* Estilo cuando el checkbox está marcado */
 input[type="checkbox"]:checked {
     background-color: #688A6A;
     border-color: #688A6A;
 }
 
 input[type="checkbox"]:checked + label {
-    color: #688A6A;  /* Color de la etiqueta cuando está marcado */
+    color: #688A6A;  
 }
 
 .Label {
@@ -42,4 +42,5 @@ input[type="checkbox"]:checked + label {
     font-size: 15px;
     line-height: 1;
     font-weight: lighter;
+   
 }

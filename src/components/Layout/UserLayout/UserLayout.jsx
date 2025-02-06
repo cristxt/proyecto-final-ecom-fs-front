@@ -86,6 +86,7 @@ const UserLayout = () => {
                         selectedValue={rangoPrecio}
                         onChange={setRangoPrecio}
                         name="precio"
+
                     />
                 </div>
 
