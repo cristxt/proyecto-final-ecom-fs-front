@@ -73,7 +73,10 @@ const UserLayout = () => {
                         title="Categoría"
                         options={categorias}
                         selectedValue={categoriaSeleccionada}
-                        onChange={(id) => setCategoriaSeleccionada(id)} 
+                        onChange={(id) => {
+                            const categoriaId = parseInt(id, 10);
+                            setCategoriaSeleccionada(categoriaId);
+                        }}
                         name="categoria"
                     />
 
